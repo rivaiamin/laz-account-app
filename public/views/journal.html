@@ -1,0 +1,114 @@
+
+<div class="ui modal">
+  <div class="header">Ubah Jurnal</div>
+  <div class="content">
+    <form action="" class="ui form">
+      <div class="fields">
+        <div class="three wide field">
+          <label for="">Tanggal</label>
+          <input type="date" name="date" id="date" ng-model="journalEdit.date">
+        </div>
+        <div class="six wide field">
+          <label for="">No Ref</label>
+          <input type="text" name="code" id="code" ng-model="journalEdit.code" readonly>
+        </div>
+        <div class="six wide field">
+          <label>Akun</label>
+          <select class="ui search dropdown" ng-selected="account.code == journalEdit.account_code" ng-model="journalEdit.account_code"
+            ng-options="account.code as account.code+' - '+account.name for account in accounts">
+            <option value="">-- Pilih Akun --</option>
+          </select>
+        </div>
+        <div class="two wide field">
+          <label>Debit</label>
+          <input type="number" ng-model="journalEdit.debit">
+        </div>
+        <div class="two wide field">
+          <label>Kredit</label>
+          <input type="number" ng-model="journalEdit.credit">
+        </div>
+      </div>
+      <div class="field">
+        <label>Keterangan</label>
+        <textarea name="description" id="description" cols="30" rows="2" ng-model="journalEdit.description"></textarea>
+      </div>
+    </form>
+  </div>
+  <div class="actions">
+    <div class="ui primary approve button" ng-click="updateJournal(journalEdit)"> <i class="icon save"></i> Approve</div>
+    <div class="ui cancel button"><i class="arrow left icon"></i> Cancel</div>
+  </div>
+</div>
+
+
+
+<form class="ui segment form">
+  <h4 class="ui dividing header">Tambah Jurnal</h4>
+  <div class="fields">
+    <div class="three wide field">
+      <label for="">Tanggal</label>
+      <input type="date" name="date" id="date" ng-model="journal.date">
+    </div>
+    <div class="six wide field">
+      <label for="">No Ref</label>
+      <input type="text" name="code" id="code" ng-model="journal.code">
+    </div>
+    <div class="six wide field">
+      <label>Akun</label>
+      <select ui-dropdown class="ui search dropdown" ng-model="journal.account_code"
+        ng-options="account.code as account.code+' - '+account.name for account in accounts">
+        <option value="">-- Pilih Akun --</option>
+      </select>
+    </div>
+    <div class="two wide field">
+      <label>Debit</label>
+      <input type="number" ng-model="journal.debit">
+    </div>
+    <div class="two wide field">
+      <label>Kredit</label>
+      <input type="number" ng-model="journal.credit">
+    </div>
+  </div>
+  <div class="field">
+    <label>Keterangan</label>
+    <textarea name="description" id="description" cols="30" rows="2" ng-model="journal.description"></textarea>
+  </div>
+  <button class="ui orange button" tabindex="0" ng-click="createJournal(journal)"> <i class="save icon"></i> Simpan
+    Jurnal</button>
+
+</form>
+<table class="ui table orange bordered">
+  <thead>
+    <tr>
+      <th class="one wide">No</th>
+      <th class="two wide">Tanggal</th>
+      <th class="three wide">No. Ref</th>
+      <th class="three wide">Akun</th>
+      <th class="two wide">Debit </th>
+      <th class="two wide">Kredit </th>
+      <th class="two wide">
+        <div class="ui fluid icon input">
+          <input type="text" placeholder="Pencarian">
+          <i class="search icon"></i>
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in journals | orderBy:'-code'">
+      <td>{{ $index+1 }}</td>
+      <td>{{ item.date | date:'y-MM-dd' }}</td>
+      <td>{{ item.code }} </td>
+      <td>{{ item.account_code }} - {{ getAccountName(item.account_code) }}</td>
+      <td>{{ item.debit | number:fractionSize }}</td>
+      <td>{{ item.credit | number:fractionSize }}</td>
+      <td>
+        <div class="ui buttons">
+          <button ui-popup class="ui tiny basic green button" ng-click="editJournal(item)" title="Ubah"><i class="edit icon"></i></button>
+          <button ui-popup class="ui tiny basic red button" ng-click="removeJournal(item.code)" title="Hapus"><i class="trash icon"></i></button>
+        </div>
+      </td>
+    </tr>
+
+  </tbody>
+</table>

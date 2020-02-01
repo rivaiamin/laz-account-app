@@ -1,0 +1,100 @@
+code;parent_code;level;name;description;sequence
+1;0;1;Aset;;100000
+11;1;2;Aset Lancar;;110000
+110001;11;3;Kas;;110001
+110002;12;3;Persediaan;;110002
+110003;13;3;Piutang;;110003
+110004;14;3;Biaya dibayar dimuka;;110004
+110005;15;3;Uang muka kegiatan;;110005
+12;1;2;Aset Tidak Lancar;;120000
+120001;12;3;Aset tetap;;120001
+120002;13;3;Akumulasi penyusutan aset tetap;;120002
+120003;14;3;Aset tetap kelolaan;;120003
+120004;15;3;Akumulasi penyusutan aset tetap kelolaan;;120004
+2;0;1;Kewajiban;;200000
+21;2;2;Kewajiban jangka pendek;;210000
+210001;21;3;Utang penyaluran;;210001
+210002;21;3;Biaya yang masih harus dibayar;;210002
+210003;21;3;Hutang dari pihak ketiga;;210003
+210004;21;3;Hutang lain-lain;;210004
+22;2;2;Kewajiban jangka panjang;;220000
+220001;22;3;Hutang Murabahah;;220001
+3;0;1;Saldo dana;;300000
+31;3;2;Saldo dana zakat;;310000
+310001;31;3;Saldo dana zakat;;310001
+32;3;2;Saldo dana infak/sedekah;;320000
+320001;32;3;Saldo dana infak/sedekah;;320001
+33;3;2;Saldo dana amil;;330000
+330001;33;3;Saldo dana amil;;330001
+34;3;2;Saldo dana hibah;;340000
+340001;34;3;Saldo dana hibah;;340001
+35;3;2;Saldo dana APBN/APBD;;350000
+350001;35;3;Saldo dana APBN/APBD;;350001
+36;3;2;Saldo dana non syari'ah;;360000
+360001;36;3;Saldo dana non syari'ah;;360001
+4;0;1;Penerimaan;;400000
+41;4;2;Penerimaan dana zakat;;410000
+410001;41;3;Penerimaan zakat entitas;;410001
+410002;41;3;Penerimaan zakat Individual;;410002
+410003;41;3;Penerimaan bagi hasil atas penempatan dana zakat;;410003
+410004;41;3;Selisih lebih nilai tukar/penilaian - dana zakat;;410004
+410005;41;3;Penerimaan lain-lain - dana zakat;;410005
+42;4;2;Penerimaan dana infak/sedekah;;420000
+420001;42;3;Penerimaan infak/sedekah terikat;;420001
+420002;42;3;Penerimaan infak/sedekah tidak terikat;;420002
+420003;42;3;Selisih lebih nilai tukar/penilaian - dana infak/sedekah;;420003
+420004;42;3;Penerimaan bagi hasil atas penempatan dana infak/sedekah;;420004
+43;4;2;Penerimaan dana amil;;430000
+430001;43;3;Bagian amil dari dana zakat;;430001
+430002;43;3;Bagian amil dari dana infak/sedekah;;430002
+430003;43;3;Bagian amil dari dana hibah;;430003
+430004;43;3;Penerimaan bagi hasil atas penempatan dana amil;;430004
+430005;43;3;Penerimaan lain;;430005
+44;4;2;Penerimaan dana hibah;;440000
+440001;44;3;Penerimaan hibah individu;;440001
+440002;44;3;Penerimaan hibah entitas;;440002
+440003;44;3;Selisih lebih nilai tukar/penilaian - dana hibah;;440003
+440004;44;3;Penerimaan bagi hasil atas penempatan dana hibah;;440004
+440005;44;3;Penerimaan lain-lain - dana hibah;;440005
+45;4;2;Penerimaan dana APBN/APBD;;450000
+450001;45;3;Penerimaan dana APBN/APBD;;450001
+46;4;2;Penerimaan dana jasa giro;;460000
+460001;46;3;Penerimaan dana jasa giro;;460001
+5;0;1;Penyaluran dana;;500000
+51;5;2;Penyaluran dana zakat;;510000
+510001;51;3;Penyaluran dana zakat untuk amil;;510001
+510002;51;3;Penyaluran dana zakat untuk fakir miskin;;510002
+510003;51;3;Penyaluran dana zakat untuk riqab;;510003
+510004;51;3;Penyaluran dana zakat untuk gharim;;510004
+510005;51;3;Penyaluran dana zakat untuk muallaf;;510005
+510006;51;3;Penyaluran dana zakat untuk fisabilillah;;510006
+510007;51;3;Penyaluran dana zakat untuk ibnu sabil;;510007
+510008;51;3;Alokasi pemanfaatan aset kelolaan - dana zakat;;510008
+510009;51;3;Selisih kurang nilai tukar/penilaian - dana zakat;;510009
+510010;51;3;Penyaluran lain-lain - dana zakat;;510010
+52;5;2;Penyaluran dana infak/sedekah;;520000
+520001;52;3;Penyaluran dana infak/sedekah untuk amil;;520001
+520002;52;3;Penyaluran infak/sedekah terikat;;520002
+520003;52;3;Penyaluran infak/sedekah tidak terikat;;520003
+520004;52;3;Alokasi pemanfaatan aset kelolaan - dana infak/sedekah;;520004
+520005;52;3;Selisih kurang nilai tukar/penilaian - dana infak/sedekah;;520005
+520006;52;3;Penyaluran lain-lain - dana infak/sedekah;;520006
+53;5;2;Penggunaan dana amil;;530000
+530001;53;3;Belanja pegawai;;530001
+530002;53;3;Biaya publikasi dan dokumentasi;;530002
+530003;53;3;Biaya perjalanan dinas;;530003
+530004;53;3;Beban umum dan administrasi lain;;530004
+530005;53;3;Beban penyusutan;;530005
+530006;53;3;Penggunaan lain-lain;;530006
+530007;53;3;Biaya jasa pihak ketiga;;530007
+530008;53;3;Pengadaan aset tetap;;530008
+54;5;2;Penyaluran dana hibah;;540000
+540001;54;3;Penyaluran dana hibah untuk amil;;540001
+540002;54;3;Penyaluran dana hibah untuk pihak ketiga;;540002
+540003;54;3;Alokasi pemanfaatan aset kelolaan - dana hibah;;540003
+540004;54;3;Selisih kurang nilai tukar/penilaian - dana hibah;;540004
+540005;54;3;Penyaluran lain-lain - dana hibah;;540005
+55;5;2;Penggunaan dana APBN/APBD;;550000
+550001;55;3;Penggunaan dana APBN/APBD;;550001
+56;5;2;Penyaluran dana jasa giro;;560000
+560001;56;3;Penyaluran dana jasa giro;;560001

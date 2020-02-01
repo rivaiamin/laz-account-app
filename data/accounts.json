@@ -1,0 +1,794 @@
+[
+  {
+    "code": 1,
+    "parent_code": 0,
+    "level": 1,
+    "name": "Aset",
+    "description": "",
+    "sequence": 100000
+  },
+  {
+    "code": 11,
+    "parent_code": 1,
+    "level": 2,
+    "name": "Aset Lancar",
+    "description": "",
+    "sequence": 110000
+  },
+  {
+    "code": 110001,
+    "parent_code": 11,
+    "level": 3,
+    "name": "Kas",
+    "description": "",
+    "sequence": 110001
+  },
+  {
+    "code": 110002,
+    "parent_code": 12,
+    "level": 3,
+    "name": "Persediaan",
+    "description": "",
+    "sequence": 110002
+  },
+  {
+    "code": 110003,
+    "parent_code": 13,
+    "level": 3,
+    "name": "Piutang",
+    "description": "",
+    "sequence": 110003
+  },
+  {
+    "code": 110004,
+    "parent_code": 14,
+    "level": 3,
+    "name": "Biaya dibayar dimuka",
+    "description": "",
+    "sequence": 110004
+  },
+  {
+    "code": 110005,
+    "parent_code": 15,
+    "level": 3,
+    "name": "Uang muka kegiatan",
+    "description": "",
+    "sequence": 110005
+  },
+  {
+    "code": 12,
+    "parent_code": 1,
+    "level": 2,
+    "name": "Aset Tidak Lancar",
+    "description": "",
+    "sequence": 120000
+  },
+  {
+    "code": 120001,
+    "parent_code": 12,
+    "level": 3,
+    "name": "Aset tetap",
+    "description": "",
+    "sequence": 120001
+  },
+  {
+    "code": 120002,
+    "parent_code": 13,
+    "level": 3,
+    "name": "Akumulasi penyusutan aset tetap",
+    "description": "",
+    "sequence": 120002
+  },
+  {
+    "code": 120003,
+    "parent_code": 14,
+    "level": 3,
+    "name": "Aset tetap kelolaan",
+    "description": "",
+    "sequence": 120003
+  },
+  {
+    "code": 120004,
+    "parent_code": 15,
+    "level": 3,
+    "name": "Akumulasi penyusutan aset tetap kelolaan",
+    "description": "",
+    "sequence": 120004
+  },
+  {
+    "code": 2,
+    "parent_code": 0,
+    "level": 1,
+    "name": "Kewajiban",
+    "description": "",
+    "sequence": 200000
+  },
+  {
+    "code": 21,
+    "parent_code": 2,
+    "level": 2,
+    "name": "Kewajiban jangka pendek",
+    "description": "",
+    "sequence": 210000
+  },
+  {
+    "code": 210001,
+    "parent_code": 21,
+    "level": 3,
+    "name": "Utang penyaluran",
+    "description": "",
+    "sequence": 210001
+  },
+  {
+    "code": 210002,
+    "parent_code": 21,
+    "level": 3,
+    "name": "Biaya yang masih harus dibayar",
+    "description": "",
+    "sequence": 210002
+  },
+  {
+    "code": 210003,
+    "parent_code": 21,
+    "level": 3,
+    "name": "Hutang dari pihak ketiga",
+    "description": "",
+    "sequence": 210003
+  },
+  {
+    "code": 210004,
+    "parent_code": 21,
+    "level": 3,
+    "name": "Hutang lain-lain",
+    "description": "",
+    "sequence": 210004
+  },
+  {
+    "code": 22,
+    "parent_code": 2,
+    "level": 2,
+    "name": "Kewajiban jangka panjang",
+    "description": "",
+    "sequence": 220000
+  },
+  {
+    "code": 220001,
+    "parent_code": 22,
+    "level": 3,
+    "name": "Hutang Murabahah",
+    "description": "",
+    "sequence": 220001
+  },
+  {
+    "code": 3,
+    "parent_code": 0,
+    "level": 1,
+    "name": "Saldo dana",
+    "description": "",
+    "sequence": 300000
+  },
+  {
+    "code": 31,
+    "parent_code": 3,
+    "level": 2,
+    "name": "Saldo dana zakat",
+    "description": "",
+    "sequence": 310000
+  },
+  {
+    "code": 310001,
+    "parent_code": 31,
+    "level": 3,
+    "name": "Saldo dana zakat",
+    "description": "",
+    "sequence": 310001
+  },
+  {
+    "code": 32,
+    "parent_code": 3,
+    "level": 2,
+    "name": "Saldo dana infak/sedekah",
+    "description": "",
+    "sequence": 320000
+  },
+  {
+    "code": 320001,
+    "parent_code": 32,
+    "level": 3,
+    "name": "Saldo dana infak/sedekah",
+    "description": "",
+    "sequence": 320001
+  },
+  {
+    "code": 33,
+    "parent_code": 3,
+    "level": 2,
+    "name": "Saldo dana amil",
+    "description": "",
+    "sequence": 330000
+  },
+  {
+    "code": 330001,
+    "parent_code": 33,
+    "level": 3,
+    "name": "Saldo dana amil",
+    "description": "",
+    "sequence": 330001
+  },
+  {
+    "code": 34,
+    "parent_code": 3,
+    "level": 2,
+    "name": "Saldo dana hibah",
+    "description": "",
+    "sequence": 340000
+  },
+  {
+    "code": 340001,
+    "parent_code": 34,
+    "level": 3,
+    "name": "Saldo dana hibah",
+    "description": "",
+    "sequence": 340001
+  },
+  {
+    "code": 35,
+    "parent_code": 3,
+    "level": 2,
+    "name": "Saldo dana APBN/APBD",
+    "description": "",
+    "sequence": 350000
+  },
+  {
+    "code": 350001,
+    "parent_code": 35,
+    "level": 3,
+    "name": "Saldo dana APBN/APBD",
+    "description": "",
+    "sequence": 350001
+  },
+  {
+    "code": 36,
+    "parent_code": 3,
+    "level": 2,
+    "name": "Saldo dana non syari'ah",
+    "description": "",
+    "sequence": 360000
+  },
+  {
+    "code": 360001,
+    "parent_code": 36,
+    "level": 3,
+    "name": "Saldo dana non syari'ah",
+    "description": "",
+    "sequence": 360001
+  },
+  {
+    "code": 4,
+    "parent_code": 0,
+    "level": 1,
+    "name": "Penerimaan",
+    "description": "",
+    "sequence": 400000
+  },
+  {
+    "code": 41,
+    "parent_code": 4,
+    "level": 2,
+    "name": "Penerimaan dana zakat",
+    "description": "",
+    "sequence": 410000
+  },
+  {
+    "code": 410001,
+    "parent_code": 41,
+    "level": 3,
+    "name": "Penerimaan zakat entitas",
+    "description": "",
+    "sequence": 410001
+  },
+  {
+    "code": 410002,
+    "parent_code": 41,
+    "level": 3,
+    "name": "Penerimaan zakat Individual",
+    "description": "",
+    "sequence": 410002
+  },
+  {
+    "code": 410003,
+    "parent_code": 41,
+    "level": 3,
+    "name": "Penerimaan bagi hasil atas penempatan dana zakat",
+    "description": "",
+    "sequence": 410003
+  },
+  {
+    "code": 410004,
+    "parent_code": 41,
+    "level": 3,
+    "name": "Selisih lebih nilai tukar/penilaian - dana zakat",
+    "description": "",
+    "sequence": 410004
+  },
+  {
+    "code": 410005,
+    "parent_code": 41,
+    "level": 3,
+    "name": "Penerimaan lain-lain - dana zakat",
+    "description": "",
+    "sequence": 410005
+  },
+  {
+    "code": 42,
+    "parent_code": 4,
+    "level": 2,
+    "name": "Penerimaan dana infak/sedekah",
+    "description": "",
+    "sequence": 420000
+  },
+  {
+    "code": 420001,
+    "parent_code": 42,
+    "level": 3,
+    "name": "Penerimaan infak/sedekah terikat",
+    "description": "",
+    "sequence": 420001
+  },
+  {
+    "code": 420002,
+    "parent_code": 42,
+    "level": 3,
+    "name": "Penerimaan infak/sedekah tidak terikat",
+    "description": "",
+    "sequence": 420002
+  },
+  {
+    "code": 420003,
+    "parent_code": 42,
+    "level": 3,
+    "name": "Selisih lebih nilai tukar/penilaian - dana infak/sedekah",
+    "description": "",
+    "sequence": 420003
+  },
+  {
+    "code": 420004,
+    "parent_code": 42,
+    "level": 3,
+    "name": "Penerimaan bagi hasil atas penempatan dana infak/sedekah",
+    "description": "",
+    "sequence": 420004
+  },
+  {
+    "code": 43,
+    "parent_code": 4,
+    "level": 2,
+    "name": "Penerimaan dana amil",
+    "description": "",
+    "sequence": 430000
+  },
+  {
+    "code": 430001,
+    "parent_code": 43,
+    "level": 3,
+    "name": "Bagian amil dari dana zakat",
+    "description": "",
+    "sequence": 430001
+  },
+  {
+    "code": 430002,
+    "parent_code": 43,
+    "level": 3,
+    "name": "Bagian amil dari dana infak/sedekah",
+    "description": "",
+    "sequence": 430002
+  },
+  {
+    "code": 430003,
+    "parent_code": 43,
+    "level": 3,
+    "name": "Bagian amil dari dana hibah",
+    "description": "",
+    "sequence": 430003
+  },
+  {
+    "code": 430004,
+    "parent_code": 43,
+    "level": 3,
+    "name": "Penerimaan bagi hasil atas penempatan dana amil",
+    "description": "",
+    "sequence": 430004
+  },
+  {
+    "code": 430005,
+    "parent_code": 43,
+    "level": 3,
+    "name": "Penerimaan lain",
+    "description": "",
+    "sequence": 430005
+  },
+  {
+    "code": 44,
+    "parent_code": 4,
+    "level": 2,
+    "name": "Penerimaan dana hibah",
+    "description": "",
+    "sequence": 440000
+  },
+  {
+    "code": 440001,
+    "parent_code": 44,
+    "level": 3,
+    "name": "Penerimaan hibah individu",
+    "description": "",
+    "sequence": 440001
+  },
+  {
+    "code": 440002,
+    "parent_code": 44,
+    "level": 3,
+    "name": "Penerimaan hibah entitas",
+    "description": "",
+    "sequence": 440002
+  },
+  {
+    "code": 440003,
+    "parent_code": 44,
+    "level": 3,
+    "name": "Selisih lebih nilai tukar/penilaian - dana hibah",
+    "description": "",
+    "sequence": 440003
+  },
+  {
+    "code": 440004,
+    "parent_code": 44,
+    "level": 3,
+    "name": "Penerimaan bagi hasil atas penempatan dana hibah",
+    "description": "",
+    "sequence": 440004
+  },
+  {
+    "code": 440005,
+    "parent_code": 44,
+    "level": 3,
+    "name": "Penerimaan lain-lain - dana hibah",
+    "description": "",
+    "sequence": 440005
+  },
+  {
+    "code": 45,
+    "parent_code": 4,
+    "level": 2,
+    "name": "Penerimaan dana APBN/APBD",
+    "description": "",
+    "sequence": 450000
+  },
+  {
+    "code": 450001,
+    "parent_code": 45,
+    "level": 3,
+    "name": "Penerimaan dana APBN/APBD",
+    "description": "",
+    "sequence": 450001
+  },
+  {
+    "code": 46,
+    "parent_code": 4,
+    "level": 2,
+    "name": "Penerimaan dana jasa giro",
+    "description": "",
+    "sequence": 460000
+  },
+  {
+    "code": 460001,
+    "parent_code": 46,
+    "level": 3,
+    "name": "Penerimaan dana jasa giro",
+    "description": "",
+    "sequence": 460001
+  },
+  {
+    "code": 5,
+    "parent_code": 0,
+    "level": 1,
+    "name": "Penyaluran dana",
+    "description": "",
+    "sequence": 500000
+  },
+  {
+    "code": 51,
+    "parent_code": 5,
+    "level": 2,
+    "name": "Penyaluran dana zakat",
+    "description": "",
+    "sequence": 510000
+  },
+  {
+    "code": 510001,
+    "parent_code": 51,
+    "level": 3,
+    "name": "Penyaluran dana zakat untuk amil",
+    "description": "",
+    "sequence": 510001
+  },
+  {
+    "code": 510002,
+    "parent_code": 51,
+    "level": 3,
+    "name": "Penyaluran dana zakat untuk fakir miskin",
+    "description": "",
+    "sequence": 510002
+  },
+  {
+    "code": 510003,
+    "parent_code": 51,
+    "level": 3,
+    "name": "Penyaluran dana zakat untuk riqab",
+    "description": "",
+    "sequence": 510003
+  },
+  {
+    "code": 510004,
+    "parent_code": 51,
+    "level": 3,
+    "name": "Penyaluran dana zakat untuk gharim",
+    "description": "",
+    "sequence": 510004
+  },
+  {
+    "code": 510005,
+    "parent_code": 51,
+    "level": 3,
+    "name": "Penyaluran dana zakat untuk muallaf",
+    "description": "",
+    "sequence": 510005
+  },
+  {
+    "code": 510006,
+    "parent_code": 51,
+    "level": 3,
+    "name": "Penyaluran dana zakat untuk fisabilillah",
+    "description": "",
+    "sequence": 510006
+  },
+  {
+    "code": 510007,
+    "parent_code": 51,
+    "level": 3,
+    "name": "Penyaluran dana zakat untuk ibnu sabil",
+    "description": "",
+    "sequence": 510007
+  },
+  {
+    "code": 510008,
+    "parent_code": 51,
+    "level": 3,
+    "name": "Alokasi pemanfaatan aset kelolaan - dana zakat",
+    "description": "",
+    "sequence": 510008
+  },
+  {
+    "code": 510009,
+    "parent_code": 51,
+    "level": 3,
+    "name": "Selisih kurang nilai tukar/penilaian - dana zakat",
+    "description": "",
+    "sequence": 510009
+  },
+  {
+    "code": 510010,
+    "parent_code": 51,
+    "level": 3,
+    "name": "Penyaluran lain-lain - dana zakat",
+    "description": "",
+    "sequence": 510010
+  },
+  {
+    "code": 52,
+    "parent_code": 5,
+    "level": 2,
+    "name": "Penyaluran dana infak/sedekah",
+    "description": "",
+    "sequence": 520000
+  },
+  {
+    "code": 520001,
+    "parent_code": 52,
+    "level": 3,
+    "name": "Penyaluran dana infak/sedekah untuk amil",
+    "description": "",
+    "sequence": 520001
+  },
+  {
+    "code": 520002,
+    "parent_code": 52,
+    "level": 3,
+    "name": "Penyaluran infak/sedekah terikat",
+    "description": "",
+    "sequence": 520002
+  },
+  {
+    "code": 520003,
+    "parent_code": 52,
+    "level": 3,
+    "name": "Penyaluran infak/sedekah tidak terikat",
+    "description": "",
+    "sequence": 520003
+  },
+  {
+    "code": 520004,
+    "parent_code": 52,
+    "level": 3,
+    "name": "Alokasi pemanfaatan aset kelolaan - dana infak/sedekah",
+    "description": "",
+    "sequence": 520004
+  },
+  {
+    "code": 520005,
+    "parent_code": 52,
+    "level": 3,
+    "name": "Selisih kurang nilai tukar/penilaian - dana infak/sedekah",
+    "description": "",
+    "sequence": 520005
+  },
+  {
+    "code": 520006,
+    "parent_code": 52,
+    "level": 3,
+    "name": "Penyaluran lain-lain - dana infak/sedekah",
+    "description": "",
+    "sequence": 520006
+  },
+  {
+    "code": 53,
+    "parent_code": 5,
+    "level": 2,
+    "name": "Penggunaan dana amil",
+    "description": "",
+    "sequence": 530000
+  },
+  {
+    "code": 530001,
+    "parent_code": 53,
+    "level": 3,
+    "name": "Belanja pegawai",
+    "description": "",
+    "sequence": 530001
+  },
+  {
+    "code": 530002,
+    "parent_code": 53,
+    "level": 3,
+    "name": "Biaya publikasi dan dokumentasi",
+    "description": "",
+    "sequence": 530002
+  },
+  {
+    "code": 530003,
+    "parent_code": 53,
+    "level": 3,
+    "name": "Biaya perjalanan dinas",
+    "description": "",
+    "sequence": 530003
+  },
+  {
+    "code": 530004,
+    "parent_code": 53,
+    "level": 3,
+    "name": "Beban umum dan administrasi lain",
+    "description": "",
+    "sequence": 530004
+  },
+  {
+    "code": 530005,
+    "parent_code": 53,
+    "level": 3,
+    "name": "Beban penyusutan",
+    "description": "",
+    "sequence": 530005
+  },
+  {
+    "code": 530006,
+    "parent_code": 53,
+    "level": 3,
+    "name": "Penggunaan lain-lain",
+    "description": "",
+    "sequence": 530006
+  },
+  {
+    "code": 530007,
+    "parent_code": 53,
+    "level": 3,
+    "name": "Biaya jasa pihak ketiga",
+    "description": "",
+    "sequence": 530007
+  },
+  {
+    "code": 530008,
+    "parent_code": 53,
+    "level": 3,
+    "name": "Pengadaan aset tetap",
+    "description": "",
+    "sequence": 530008
+  },
+  {
+    "code": 54,
+    "parent_code": 5,
+    "level": 2,
+    "name": "Penyaluran dana hibah",
+    "description": "",
+    "sequence": 540000
+  },
+  {
+    "code": 540001,
+    "parent_code": 54,
+    "level": 3,
+    "name": "Penyaluran dana hibah untuk amil",
+    "description": "",
+    "sequence": 540001
+  },
+  {
+    "code": 540002,
+    "parent_code": 54,
+    "level": 3,
+    "name": "Penyaluran dana hibah untuk pihak ketiga",
+    "description": "",
+    "sequence": 540002
+  },
+  {
+    "code": 540003,
+    "parent_code": 54,
+    "level": 3,
+    "name": "Alokasi pemanfaatan aset kelolaan - dana hibah",
+    "description": "",
+    "sequence": 540003
+  },
+  {
+    "code": 540004,
+    "parent_code": 54,
+    "level": 3,
+    "name": "Selisih kurang nilai tukar/penilaian - dana hibah",
+    "description": "",
+    "sequence": 540004
+  },
+  {
+    "code": 540005,
+    "parent_code": 54,
+    "level": 3,
+    "name": "Penyaluran lain-lain - dana hibah",
+    "description": "",
+    "sequence": 540005
+  },
+  {
+    "code": 55,
+    "parent_code": 5,
+    "level": 2,
+    "name": "Penggunaan dana APBN/APBD",
+    "description": "",
+    "sequence": 550000
+  },
+  {
+    "code": 550001,
+    "parent_code": 55,
+    "level": 3,
+    "name": "Penggunaan dana APBN/APBD",
+    "description": "",
+    "sequence": 550001
+  },
+  {
+    "code": 56,
+    "parent_code": 5,
+    "level": 2,
+    "name": "Penyaluran dana jasa giro",
+    "description": "",
+    "sequence": 560000
+  },
+  {
+    "code": 560001,
+    "parent_code": 56,
+    "level": 3,
+    "name": "Penyaluran dana jasa giro",
+    "description": "",
+    "sequence": 560001
+  }
+ ]

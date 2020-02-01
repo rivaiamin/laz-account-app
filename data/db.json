@@ -1,0 +1,232 @@
+{
+  "banks": [
+    {
+      "code": "002",
+      "name": "BANK BRI"
+    },
+    {
+      "code": "014",
+      "name": "BANK BCA"
+    },
+    {
+      "code": "008",
+      "name": "BANK MANDIRI"
+    },
+    {
+      "code": "009",
+      "name": "BANK BNI"
+    },
+    {
+      "code": "427",
+      "name": "BANK BNI SYARIAH"
+    },
+    {
+      "code": "451",
+      "name": "BANK SYARIAH MANDIRI (BSM)"
+    },
+    {
+      "code": "022",
+      "name": "BANK CIMB NIAGA"
+    },
+    {
+      "code": "022",
+      "name": "BANK CIMB NIAGA SYARIAH"
+    },
+    {
+      "code": "147",
+      "name": "BANK MUAMALAT"
+    },
+    {
+      "code": "213",
+      "name": "BANK BTPN"
+    },
+    {
+      "code": "547",
+      "name": "BANK BTPN SYARIAH"
+    },
+    {
+      "code": "213",
+      "name": "JENIUS"
+    },
+    {
+      "code": "422",
+      "name": "BANK BRI SYARIAH"
+    },
+    {
+      "code": "200",
+      "name": "BANK BTN"
+    },
+    {
+      "code": "013",
+      "name": "BANK PERMATA"
+    },
+    {
+      "code": "011",
+      "name": "BANK DANAMON"
+    },
+    {
+      "code": "016",
+      "name": "BANK BII MAYBANK"
+    },
+    {
+      "code": "426",
+      "name": "BANK MEGA"
+    },
+    {
+      "code": "153",
+      "name": "BANK SINARMAS"
+    },
+    {
+      "code": "950",
+      "name": "BANK COMMONWEALTH"
+    },
+    {
+      "code": "028",
+      "name": "BANK OCBC NISP"
+    },
+    {
+      "code": "441",
+      "name": "BANK BUKOPIN"
+    },
+    {
+      "code": "521",
+      "name": "BANK BUKOPIN SYARIAH"
+    },
+    {
+      "code": "536",
+      "name": "BANK BCA SYARIAH"
+    },
+    {
+      "code": "026",
+      "name": "BANK LIPPO"
+    },
+    {
+      "code": "031",
+      "name": "CITIBANK"
+    },
+    {
+      "code": "789",
+      "name": "INDOSAT DOMPETKU"
+    },
+    {
+      "code": "911",
+      "name": "TELKOMSEL TCASH"
+    },
+    {
+      "code": "911",
+      "name": "LINKAJA"
+    }
+  ],
+  "accounts": [
+    {
+      "code": 1,
+      "name": "Aset",
+      "parent_code": null,
+      "level": 1,
+      "description": "",
+      "balance": "D"
+    },
+    {
+      "code": 11,
+      "name": "Aset Lancar",
+      "parent_code": 1,
+      "level": 2,
+      "description": "Merupakan Aset yang diharapkan segera untuk dapat direalisasikan atau dimiliki untuk dipakai atau dijual dalam waktu 12 (dua belas) bulan sejak tanggal pelaporan.",
+      "balance": "D",
+      "updated_at": "2019-12-28T10:05:47.885Z"
+    },
+    {
+      "code": 1101,
+      "name": "Kas dan Setara Kas",
+      "parent_code": 11,
+      "level": 3,
+      "description": "Digunakan untuk mencatat kas dan setara kas yang dimiliki Pengelola Zakat yang mencakup antara lain: kas, kas kecil, rekening bank, deposito 1-3 bulan, dan deposito.",
+      "balance": "D"
+    },
+    {
+      "code": 1102,
+      "name": "Persediaan",
+      "parent_code": 11,
+      "level": 3,
+      "description": "Digunakan untuk mencatat persediaan yang dimiliki oleh Pengelola Zakat, termasuk di dalamnya persediaan sandang, persediaan pangan, persediaan obat-obatan, dan persediaan lainnya.",
+      "balance": "D"
+    },
+    {
+      "code": 1104,
+      "name": "Piutang",
+      "parent_code": 11,
+      "level": 3,
+      "description": "Digunakan untuk mencatat piutang yang dimiliki oleh Pengelola Zakat, antara lain: piutang qordhul hasan, piutang penyaluran zakat, dan piutang penyaluran infak/sedekah.",
+      "balance": "D"
+    },
+    {
+      "code": 1106,
+      "name": "Biaya Dibayar di Muka",
+      "parent_code": 11,
+      "level": 3,
+      "description": "Digunakan untuk mencatat pengeluaran yang telah dibayarkan dimana pengeluaran tersebut belum menjadi beban pada tahun berjalan, antara lain: sewa dibayar di muka, dan asuransi dibayar di muka",
+      "balance": "D"
+    },
+    {
+      "code": 110007,
+      "parent_code": 11,
+      "name": "Uang Muka Kegiatan",
+      "description": "Digunakan untuk mencatat pengeluaran uang muka kegiatan yang belum dipertanggungjawabkan.",
+      "balance": "D",
+      "level": 2,
+      "updated_at": "2019-12-28T09:24:56.395Z",
+      "created_at": "2019-12-28T09:24:56.395Z"
+    }
+  ],
+  "institution": {
+    "institution_id": "1",
+    "name": "Nama Lembaga",
+    "address": "alamat",
+    "institution_legal_file": "",
+    "management_legal_file": "",
+    "managements": [
+      {
+        "name": "Nama",
+        "position": "posisis",
+        "phone": "08928932",
+        "address": "jl. Ambarawa"
+      }
+    ],
+    "finances": [
+      {
+        "name": "Nama",
+        "phone": "08178217821",
+        "position": "posisi",
+        "address": "Jl. Pegangsaan Timur"
+      }
+    ],
+    "postal": "15144",
+    "city": "Tangerang",
+    "province": "Banten",
+    "phone": "087172817279",
+    "email": "email@gmail.com"
+  },
+  "journals": [
+    {
+      "code": 1234,
+      "datetime": "2019-12-12 12:12 AM",
+      "account_code": 1106,
+      "debit": 200000,
+      "credit": 0,
+      "bank_code": "002",
+      "date": "2019-12-16T17:00:00.000Z",
+      "description": "sdadsadasd",
+      "updated_at": "2019-12-29T18:55:52.208Z"
+    },
+    {
+      "date": "2019-12-29T17:00:00.000Z",
+      "code": 296395,
+      "account_code": 1102,
+      "debit": 10000,
+      "credit": 0,
+      "description": "-",
+      "updated_at": "2019-12-29T18:34:22.538Z",
+      "created_at": "2019-12-29T18:34:22.538Z"
+    }
+  ]
+}

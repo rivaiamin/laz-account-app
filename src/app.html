@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="psakApp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="assets/icon.png" />
+  <title>LAZ Account App</title>
+  <base href="/index.html">
+</head>
+
+<body ng-controller="psakCtrl">
+  <div id="topNav" class="pure-menu pure-menu-horizontal">
+    <h4 id="headLogo" class="pure-menu-heading"><img src="assets/icon.png" alt=""></h4>
+    <ul class="pure-menu-list">
+      <li class="pure-menu-item"><a href="/account" class="pure-menu-link"><img src="assets/icon/001-balance.png" alt="">
+          <label for="Daftar Akun">Daftar Akun</label></a></li>
+      <li class="pure-menu-item"><a href="/journal" class="pure-menu-link"><img src="assets/icon/009-transaction.png" alt="">
+          <label for="Jurnal Umum">Jurnal Umum</label></a></li>
+      <li class="pure-menu-item"><a href="/ledger" class="pure-menu-link"><img src="assets/icon/022-Ledger.png" alt=""> <label
+          for="Buku Besar">Buku Besar</label></a></li>
+      <li class="pure-menu-item"><a href="/finpos" class="pure-menu-link"><img src="assets/icon/007-balance.png" alt="">
+          <label for="Neraca">Lap Posisi Keuangan</label></a></li>
+      <!-- Kumpulan akun kas -->
+      <li class="pure-menu-item"><a href="#" class="pure-menu-link"><img src="assets/icon/010-report.png" alt=""> <label
+          for="Arus Kas">Lap Arus Kas</label></a></li>
+      <li class="pure-menu-item"><a href="#" class="pure-menu-link"><img src="assets/icon/014-devaluation.png" alt=""> <label
+          for="Arus Kas">Lap Aset Tetap</label></a></li>
+    </ul>
+    <a href="/institution" id="userLogo" class="pure-menu-link pure-menu-heading">
+      <img src="assets/logo.png" alt="">
+    </a>
+  </div>
+  <div id="content" class="ui container" ui-view>
+    
+  </div>
+</body>
+
+</html>

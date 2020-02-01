@@ -1,0 +1,5 @@
+node_modules
+.editorconfig
+dist/
+public/*.js
+public/index.html

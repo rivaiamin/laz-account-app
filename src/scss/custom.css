@@ -1,0 +1,99 @@
+@font-face {
+	font-family: "Quicksand";
+	src: url("./assets/fonts/Quicksand.ttf");
+}
+
+body {
+  font-family: 'Quicksand';
+  background: #FAFAFA;
+}
+
+#topNav {
+	box-shadow: 0px 0px 5px #999;
+	font-family: 'Quicksand';
+  text-transform: uppercase;
+  position: fixed;
+  z-index: 10;
+  background: #FFF;
+  top: 0;
+}
+
+#content {
+	margin-top: 7em;
+}
+
+#headLogo {
+  background-color: #FF9E2E;
+  margin: 0;
+  padding: 0;
+  color: #FFF;
+}
+
+#headLogo img {
+  width: 5em;
+}
+
+#userLogo {
+	float: right;
+	padding: 0.2em;
+}
+
+#userLogo img {
+	width: 4.5em;
+	margin: 0.2em;
+}
+
+.mt-20 {
+	margin-top: 20px;
+}
+
+.text-center {
+	text-align: center;
+}
+
+/* Custom Pure */
+.pure-form input[type=color],
+.pure-form input[type=date],
+.pure-form input[type=datetime-local],
+.pure-form input[type=datetime],
+.pure-form input[type=email],
+.pure-form input[type=month],
+.pure-form input[type=number],
+.pure-form input[type=password],
+.pure-form input[type=search],
+.pure-form input[type=tel],
+.pure-form input[type=text],
+.pure-form input[type=time],
+.pure-form input[type=url],
+.pure-form input[type=week],
+.pure-form select,
+.pure-form textarea {
+	border: none;
+	background-color: #EEF;
+}
+
+.pure-menu-active>.pure-menu-link, .pure-menu-link:focus, .pure-menu-link:hover, .pure-menu-link.active {
+	background-color: #ffeccc;
+}
+
+.pure-menu-link {
+	text-align: center;
+}
+
+.pure-menu-link img {
+	width: 3em
+}
+
+.pure-menu-link label {
+	display: block;
+}
+
+.pure-form fieldset .pure-control-group {
+	margin: 1em;
+}
+
+/* Semantic UI custom */
+
+.ui.selection.dropdown {
+  min-width: 100%;
+}

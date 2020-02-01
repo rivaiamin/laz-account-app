@@ -1,0 +1,70 @@
+
+
+<form class="ui segment form">
+  <h4 class="ui dividing header">Cetak Buku Besar</h4>
+  <div class="fields">
+    <div class="three wide field">
+      <label for="">Dari Tanggal</label>
+      <input type="date" name="from" id="from" ng-model="filter.from">
+    </div>
+    <div class="three wide field">
+      <label for="">Sampai Tanggal</label>
+      <input type="date" name="to" id="to" ng-model="filter.to">
+    </div>
+    <div class="three wide field">
+      <label for="">&nbsp;</label>
+      <button class="ui orange button" tabindex="0" ng-click="generateFinpos(filter)"> <i class="check icon"></i> Submit</button>
+    </div>
+  </div>
+</form>
+
+<div class="ui segment" ng-if="finposs.length > 0">
+  <h3 class="ui center aligned header">
+    <div class="content">
+      Buku Besar
+      <div class="sub header">Periode : {{ filter.from | date:'y-MM-dd' }} - {{ filter.to | date:'y-MM-dd' }}</div>
+    </div>
+  </h3>
+  <div class="ui grid">
+    <div class="twelve wide column">
+      <p><b>No Akun:</b> {{ account.code }}</p>
+      <p><b>Nama Akun:</b> {{ account.name }}</p>
+    </div>
+    <div class="four wide column">
+      <p><b>Saldo Awal:</b> {{ finposs[0].balance | number:fractionSize }}</p>
+      <p><b>Saldo Akhir:</b> {{ finposs[finposs.length-1].balance | number:fractionSize }}</p>
+    </div>
+  </div>
+  <table class="ui orange celled structured table">
+    <thead>
+      <tr>
+        <th class="one wide">No</th>
+        <th class="two wide">Tanggal</th>
+        <th class="three wide">No. Ref</th>
+        <th class="three wide">Uraian</th>
+        <th class="two wide">Debit </th>
+        <th class="two wide">Kredit </th>
+        <th class="two wide">Saldo </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in finposs">
+        <td>{{ $index+1 }}</td>
+        <td>{{ item.date | date:'y-MM-dd' }}</td>
+        <td>{{ item.journal_code }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.debit | number:fractionSize }}</td>
+        <td>{{ item.credit | number:fractionSize }}</td>
+        <td>{{ item.balance | number:fractionSize }}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th colspan="4">Total </th>
+        <th>{{ total.debit | number:fractionSize }}</th>
+        <th>{{ total.credit | number:fractionSize }}</th>
+        <th>{{ total.balance | number:fractionSize }}</th>
+      </tr>
+    </tfoot>
+  </table>
+</div>

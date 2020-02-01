@@ -1,0 +1,272 @@
+<div class="ui top attached tabular menu">
+  <a ui-tab class="item active" data-tab="first">Profil Lembaga</a>
+  <a ui-tab class="item" data-tab="second">Profil Pengurus dan Keuangan</a>
+</div>
+
+<div class="ui bottom attached tab segment active" data-tab="first">
+  <div class="ui grid">
+    <div class="four wide column text-center">
+      <div class="ui card">
+        <a class="image" href="#">
+          <img src="/assets/images/image-square.png">
+        </a>
+        <div class="ui bottom attached button" ng-model="file" name="file" ngf-pattern="'image/*'" ngf-select="upload($file)">
+          <i class="upload icon"></i>
+          Ubah Logo
+        </div>
+      </div>
+      <!-- <div class="mt-20">
+        <img src="assets/placeholder.svg" height="200" alt="">
+      </div>
+      <div>
+        <button type="submit" class="ui button orange"> <i class="fa fa-image"></i> Upload</button>
+      </div> -->
+    </div>
+    <div class="eight wide column">
+      <form class="ui form">
+        <h4 class="ui dividing header">Profil Lembaga</h4>
+        <div class="field">
+          <label>Nama Lembaga</label>
+          <input type="text" name="name" ng-model="institution.name" placeholder="">
+        </div>
+        <div class="field">
+          <label>Alamat</label>
+          <div class="fields">
+            <div class="twelve wide field">
+              <input type="text" name="address" ng-model="institution.address" placeholder="Masukkan alamat lengkap">
+            </div>
+            <div class="four wide field">
+              <input type="text" name="postal" ng-model="institution.postal" placeholder="Kode Pos">
+            </div>
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <label>Kota</label>
+            <input type="text" name="city" ng-model="institution.city">
+          </div>
+          <div class="field">
+            <label>Provinsi</label>
+            <input type="text" name="province" ng-model="institution.province">
+          </div>
+        </div>
+
+        <div class="two fields">
+          <div class="field">
+            <label for="">No Telepon</label>
+            <input type="text" ng-model="institution.phone" placeholder="08xxxxxxxx">
+          </div>
+          <div class="field">
+            <label for="">Email</label>
+            <input type="email" ng-model="institution.email" placeholder="email@domain.com">
+          </div>
+        </div>
+        
+        <div class="two fields">
+          <div class="field">
+            <label for="">SK Izin Pendirian</label>
+            <input type="file">
+          </div>  
+          <div class="field">
+            <label for="">SK Pengurus</label>
+            <input type="file">
+          </div>
+        </div>
+
+        <div class="ui large orange right floated button" ui-tab data-tab="second"> <i class="arrow right icon"></i> Berikutnya</div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="ui bottom attached tab segment" data-tab="second">
+  
+  <form class="ui segment form">
+    <h4 class="ui dividing header">Pengurus</h4>
+    <table class="ui table">
+        <thead>
+          <tr>
+            <th class="four wide">Nama</th>
+            <th class="two wide">Posisi</th>
+            <th class="two wide">No HP</th>
+            <th class="seven wide">Alamat</th>
+            <th class="one wide"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="ui fluid input">
+                <input type="text" ng-model="management.name" placeholder="Nama">
+              </div>
+            </td>
+            <td>
+              <div class="ui input">
+                <input type="text" ng-model="management.position" placeholder="Posisi">
+              </div>
+            </td>
+            <td>
+              <div class="ui input">
+                <input type="text" ng-model="management.phone" placeholder="No. HP">
+              </div>
+            </td>
+            <td>
+              <div class="ui fluid input">
+                <input type="text" ng-model="management.address" placeholder="Alamat">
+              </div>
+            </td>
+            <td>
+              <button type="button" class="ui primary button" ng-click="addManagement(management)"><i class="plus icon"></i> </button>
+            </td>
+          </tr>
+          <tr ng-repeat="item in institution.managements">
+            <td>
+              <span ng-if="onEditManagement == $index">
+                <div class="ui fluid input">
+                  <input type="text" ng-model="item.name" placeholder="">
+                </div>
+              </span>
+              <span ng-if="onEditManagement != $index">
+                {{ item.name }}
+              </span>
+            </td>
+            <td>
+              <span ng-if="onEditManagement == $index">
+                <div class="ui input">
+                  <input type="text" ng-model="item.position" placeholder="">
+                </div>
+              </span>
+              <span ng-if="onEditManagement != $index">
+                {{ item.position }}
+              </span>
+            </td>
+            <td>
+              <span ng-if="onEditManagement == $index">
+                <div class="ui input">
+                  <input type="text" ng-model="item.phone" placeholder="">
+                </div>
+              </span>
+              <span ng-if="onEditManagement != $index">
+                {{ item.phone }}
+              </span>
+            </td>
+            <td>
+              <span ng-if="onEditManagement == $index">
+                <div class="ui fluid input">
+                  <input type="text" ng-model="item.address" placeholder="">
+                </div>
+              </span>
+              <span ng-if="onEditManagement != $index">
+                {{ item.address }}
+              </span>
+            </td>
+            <td>
+              <div class="ui buttons" ng-if="onEditManagement == $index">
+                <button ui-popup class="ui button basic green" data-content="Simpan" ng-click="updateManagement($index, item)"><i class="check icon"></i> </button>
+                <button ui-popup class="ui button basic red" data-content="Batalkan" ng-click="cancelEditManagement()"><i class="undo icon"></i> </button>
+              </div>
+              <div class="ui buttons" ng-if="onEditManagement != $index">
+                <button ui-popup class="ui button basic green" data-content="Ubah" ng-click="editManagement($index)"><i class="edit icon"></i> </button>
+                <button ui-popup class="ui button basic red" data-content="Hapus" ng-click="removeManagement($index)"><i class="trash icon"></i> </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+  </form>
+  
+  <form class="ui segment form">
+    <h4 class="ui dividing header">Bagian Keuangan</h4>
+    <table class="ui table">
+      <thead>
+        <tr>
+          <th class="four wide">Nama</th>
+          <th class="two wide">Posisi</th>
+          <th class="two wide">No HP</th>
+          <th class="seven wide">Alamat</th>
+          <th class="one wide"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="ui fluid input">
+              <input type="text" ng-model="finance.name" placeholder="Nama">
+            </div>
+          </td>
+          <td>
+            <div class="ui input">
+              <input type="text" ng-model="finance.position" placeholder="Posisi">
+            </div>
+          </td>
+          <td>
+            <div class="ui input">
+              <input type="text" ng-model="finance.phone" placeholder="No. HP">
+            </div>
+          </td>
+          <td>
+            <div class="ui fluid input">
+              <input type="text" ng-model="finance.address" placeholder="Alamat">
+            </div>
+          </td>
+          <td>
+            <button type="button" class="ui primary button" ng-click="addFinance(finance)"><i class="plus icon"></i> </button>
+          </td>
+        </tr>
+        <tr ng-repeat="item in institution.finances">
+          <td>
+            <span ng-if="onEditFinance == $index">
+              <div class="ui fluid input">
+                <input type="text" ng-model="item.name" placeholder="">
+              </div>
+            </span>
+            <span ng-if="onEditFinance != $index">
+              {{ item.name }}
+            </span>
+          </td>
+          <td>
+            <span ng-if="onEditFinance == $index">
+              <div class="ui input">
+                <input type="text" ng-model="item.position" placeholder="">
+              </div>
+            </span>
+            <span ng-if="onEditFinance != $index">
+              {{ item.position }}
+            </span>
+          </td>
+          <td>
+            <span ng-if="onEditFinance == $index">
+              <div class="ui input">
+                <input type="text" ng-model="item.phone" placeholder="">
+              </div>
+            </span>
+            <span ng-if="onEditFinance != $index">
+              {{ item.phone }}
+            </span>
+          </td>
+          <td>
+            <span ng-if="onEditFinance == $index">
+              <div class="ui fluid input">
+                <input type="text" ng-model="item.address" placeholder="">
+              </div>
+            </span>
+            <span ng-if="onEditFinance != $index">
+              {{ item.address }}
+            </span>
+          </td>
+          <td>
+            <div class="ui buttons" ng-if="onEditFinance == $index">
+              <button ui-popup class="ui button basic green" data-content="Simpan" ng-click="updateFinance($index, item)"><i class="check icon"></i> </button>
+              <button ui-popup class="ui button basic red" data-content="Batalkan" ng-click="cancelEditFinance()"><i class="undo icon"></i> </button>
+            </div>
+            <div class="ui buttons" ng-if="onEditFinance != $index">
+              <button ui-popup class="ui button basic green" data-content="Ubah" ng-click="editFinance($index)"><i class="edit icon"></i> </button>
+              <button ui-popup class="ui button basic red" data-content="Hapus" ng-click="removeFinance($index)"><i class="trash icon"></i> </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+
+</div>
+<div class="ui large orange button" ng-click="updateInstitution(institution)" tabindex="0"> <i class="save icon"></i> Simpan</div>
