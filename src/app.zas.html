@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="psakApp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="assets/las/icon.ico" />
+  <title>LAS by Scope</title>
+  <base href="/index.html">
+</head>
+
+<body ng-controller="psakCtrl">
+  <div id="topNav" class="pure-menu pure-menu-horizontal">
+    <h4 id="headLogo" class="pure-menu-heading">
+      <a href="/" data-tooltip="Awalan" data-inverted="" data-position="bottom center">
+        <img ng-src="'assets/'+env.app_id+'/logo-square.png'" alt="">
+      </a>
+    </h4>
+    <ul class="pure-menu-list">
+      <li ng-class="{'pure-menu-active':state.includes('account')}" class="pure-menu-item"><a href="/account"
+          class="pure-menu-link">
+          <img class="menu-icon" src="assets/icons/lazapp-01 daftar akun a.png" alt="">
+          <img class="menu-icon-active" src="assets/icons/lazapp-01 daftar akun b.png" alt="">
+          <label for="Daftar Akun">Akun</label></a></li>
+      <li ng-class="{'pure-menu-active':state.includes('journal')}" class="pure-menu-item"><a href="/journal"
+          class="pure-menu-link">
+          <img class="menu-icon" src="assets/icons/lazapp-02 jurnal a.png" alt="">
+          <img class="menu-icon-active" src="assets/icons/lazapp-02 jurnal b.png" alt="">
+          <label for="Jurnal Umum">Jurnal</label></a></li>
+      <li ng-class="{'pure-menu-active':state.includes('ledger')}" class="pure-menu-item"><a href="/ledger"
+          class="pure-menu-link">
+          <img class="menu-icon" src="assets/icons/lazapp-03 buku besar a.png" alt=""> 
+          <img class="menu-icon-active" src="assets/icons/lazapp-03 buku besar b.png" alt=""> 
+          <label for="Buku Besar">Ledger</label></a></li>
+      <li ng-class="{'pure-menu-active':state.includes('finposition')}" class="pure-menu-item"><a href="/finposition"
+          class="pure-menu-link">
+          <img class="menu-icon" src="assets/icons/lazapp-04 laporan keuangan a.png" alt="">
+          <img class="menu-icon-active" src="assets/icons/lazapp-04 laporan keuangan b.png" alt="">
+          <label for="Laporan Posisi Keuangan">LPK</label></a></li>
+      <!-- Kumpulan akun kas -->
+      <li ng-class="{'pure-menu-active':state.includes('netasset')}" class="pure-menu-item"><a href="/netasset"
+          class="pure-menu-link">
+          <img class="menu-icon" src="assets/icons/lazapp-05 lpbpab a.png" alt="">
+          <img class="menu-icon-active" src="assets/icons/lazapp-05 lpbpab b.png" alt="">
+          <label for="Arus Kas">LPD</label></a></li>
+      <!-- <li ng-class="{'pure-menu-active':state.includes('cash')}" class="pure-menu-item"><a href="/cash"
+          class="pure-menu-link">
+          <img class="menu-icon" src="assets/icons/lazapp-06 aruskas a.png" alt=""> 
+          <img class="menu-icon-active" src="assets/icons/lazapp-06 aruskas b.png" alt=""> 
+          <label for="Arus Kas">LAK</label></a>
+      </li> -->
+    </ul>
+    <a href="/institution" id="userLogo" class="pure-menu-link pure-menu-heading" data-tooltip="Profil Lembaga" data-inverted="" data-position="bottom center">
+      <img src="http://localhost:5000/api/institution/logo" alt="">
+    </a>
+  </div>
+  <div id="content" class="ui container" ui-view>
+
+  </div>
+</body>
+
+</html>

@@ -1,36 +1,35 @@
 
-<div class="ui modal">
+<div id="editJournal" class="ui modal">
   <div class="header">Ubah Jurnal</div>
   <div class="content">
     <form action="" class="ui form">
-      <div class="fields">
+      <div class="fields" ng-repeat="journal in journalEdit">
         <div class="three wide field">
           <label for="">Tanggal</label>
-          <input type="date" name="date" id="date" ng-model="journalEdit.date">
-        </div>
-        <div class="six wide field">
-          <label for="">No Ref</label>
-          <input type="text" name="code" id="code" ng-model="journalEdit.code" readonly>
+          <input type="date" name="date" id="date" ng-model="journal.date">
         </div>
         <div class="six wide field">
           <label>Akun</label>
-          <select class="ui search dropdown" ng-selected="account.code == journalEdit.account_code" ng-model="journalEdit.account_code"
-            ng-options="account.code as account.code+' - '+account.name for account in accounts">
-            <option value="">-- Pilih Akun --</option>
-          </select>
+          <div class="ui action">
+            <select ui-dropdown class="ui search dropdown" ng-selected="account.code == journal.account_code" ng-model="journal.account_code"
+              ng-options="account.code as account.code+' - '+account.name for account in accounts">
+              <option value="">-- Pilih Akun --</option>
+            </select>
+            <button type="button" ng-click="addAccount()" class="ui icon orange button"><i class="icon add"></i></button>
+          </div>
         </div>
         <div class="two wide field">
           <label>Debit</label>
-          <input type="number" ng-model="journalEdit.debit">
+          <input type="number" ng-model="journal.debit">
         </div>
         <div class="two wide field">
           <label>Kredit</label>
-          <input type="number" ng-model="journalEdit.credit">
+          <input type="number" ng-model="journal.credit">
         </div>
-      </div>
-      <div class="field">
-        <label>Keterangan</label>
-        <textarea name="description" id="description" cols="30" rows="2" ng-model="journalEdit.description"></textarea>
+        <div class="three wide field">
+          <label>Keterangan</label>
+          <textarea name="description" id="description" cols="30" rows="2" ng-model="journal.description"></textarea>
+        </div>
       </div>
     </form>
   </div>
@@ -40,75 +39,193 @@
   </div>
 </div>
 
-
-
-<form class="ui segment form">
-  <h4 class="ui dividing header">Tambah Jurnal</h4>
-  <div class="fields">
-    <div class="three wide field">
-      <label for="">Tanggal</label>
-      <input type="date" name="date" id="date" ng-model="journal.date">
-    </div>
-    <div class="six wide field">
-      <label for="">No Ref</label>
-      <input type="text" name="code" id="code" ng-model="journal.code">
-    </div>
-    <div class="six wide field">
-      <label>Akun</label>
-      <select ui-dropdown class="ui search dropdown" ng-model="journal.account_code"
-        ng-options="account.code as account.code+' - '+account.name for account in accounts">
-        <option value="">-- Pilih Akun --</option>
-      </select>
-    </div>
-    <div class="two wide field">
-      <label>Debit</label>
-      <input type="number" ng-model="journal.debit">
-    </div>
-    <div class="two wide field">
-      <label>Kredit</label>
-      <input type="number" ng-model="journal.credit">
-    </div>
-  </div>
-  <div class="field">
-    <label>Keterangan</label>
-    <textarea name="description" id="description" cols="30" rows="2" ng-model="journal.description"></textarea>
-  </div>
-  <button class="ui orange button" tabindex="0" ng-click="createJournal(journal)"> <i class="save icon"></i> Simpan
-    Jurnal</button>
-
-</form>
-<table class="ui table orange bordered">
-  <thead>
-    <tr>
-      <th class="one wide">No</th>
-      <th class="two wide">Tanggal</th>
-      <th class="three wide">No. Ref</th>
-      <th class="three wide">Akun</th>
-      <th class="two wide">Debit </th>
-      <th class="two wide">Kredit </th>
-      <th class="two wide">
-        <div class="ui fluid icon input">
-          <input type="text" placeholder="Pencarian">
-          <i class="search icon"></i>
+<div id="addAccount" class="ui modal">
+  <div class="header">Tambah Akun</div>
+  <div class="content">
+    <form action="" class="ui form">
+      <div class="fields">
+        <div class="two wide field">
+          <label for="">Level</label>
+          <select ui-dropdown class="ui dropdown" ng-model="account.level" ng-change="setCodeLength(account.level)">
+            <option value=""></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
         </div>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="item in journals | orderBy:'-code'">
-      <td>{{ $index+1 }}</td>
-      <td>{{ item.date | date:'y-MM-dd' }}</td>
-      <td>{{ item.code }} </td>
-      <td>{{ item.account_code }} - {{ getAccountName(item.account_code) }}</td>
-      <td>{{ item.debit | number:fractionSize }}</td>
-      <td>{{ item.credit | number:fractionSize }}</td>
-      <td>
-        <div class="ui buttons">
-          <button ui-popup class="ui tiny basic green button" ng-click="editJournal(item)" title="Ubah"><i class="edit icon"></i></button>
-          <button ui-popup class="ui tiny basic red button" ng-click="removeJournal(item.code)" title="Hapus"><i class="trash icon"></i></button>
+        <div class="two wide field">
+          <label for="">Kode Induk</label>
+          <select ng-model="account.parent_code" ui-dropdown class="ui dropdown" ng-model="account.parent_code" ng-options="item.code as item.code for item in accounts">
+          </select>
         </div>
-      </td>
-    </tr>
+        <div class="two wide field">
+          <label>Kode Akun</label>
+          <input ng-model="account.code" type="text" placeholder="" maxlength="{{ code_length }}">
+        </div>
+        <div class="five wide field">
+          <label>Nama Akun</label>
+          <input type="text" placeholder="nama akun" ng-model="account.name">
+        </div>
+        <div class="five wide field">
+          <label>Uraian</label>
+          <textarea cols="30" rows="2" ng-model="account.description"></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="actions">
+    <div class="ui primary approve button" ng-click="saveAccount(account)"> <i class="icon save"></i> Simpan Akun</div>
+    <div class="ui cancel button"><i class="arrow left icon"></i> Cancel</div>
+  </div>
+</div>
 
-  </tbody>
-</table>
+<div class="ui container">
+  <form ui-accordion class="ui accordion segment form">
+    <div class="title">
+      <h4 class="ui dividing header"><i class="dropdown icon"></i> Tambah Jurnal
+      </h4>
+    </div>
+    <div class="content">
+      <div class="fields">
+        <div class="three wide field">
+          <label for="">Tanggal</label>
+          <input type="date" name="date" id="date" ng-model="journal.date">
+        </div>
+        <div class="four wide field">
+          <label>Akun</label>
+          <div class="ui action">
+            <select ui-dropdown class="ui search dropdown" ng-selected="journal.account_code == account.code" ng-model="journal.account_code"
+              ng-options="account.code as account.code+' - '+account.name for account in accounts">
+              <option value="">-- Pilih Akun --</option>
+            </select>
+            <button type="button" ng-click="addAccount()" class="ui icon orange button"><i class="icon add"></i></button>
+          </div>
+        </div>
+        <div class="two wide field">
+          <label>Debit</label>
+          <input type="number" ng-model="journal.debit">
+        </div>
+        <div class="two wide field">
+          <label>Kredit</label>
+          <input type="number" ng-model="journal.credit">
+        </div>
+        <div class="five wide field">
+          <label>Keterangan</label>
+          <textarea name="description" id="description" cols="30" rows="2" ng-model="journal.description"></textarea>
+        </div>
+      </div>
+      <div class="ui right aligned header">
+        <button class="ui primary button" tabindex="0" ng-click="addJournal(journal)"> <i class="plus icon"></i> Tambah Jurnal</button>
+      </div>
+      <div ng-if="tmp_journals.length > 0">
+        <table class="ui table green bordered">
+          <thead>
+            <tr>
+              <th class="two wide">Tanggal</th>
+              <th class="three wide">Akun</th>
+              <th class="two wide">Debit </th>
+              <th class="two wide">Kredit </th>
+              <th class="two wide">
+                <div class="ui fluid icon input">
+                  <input type="text" ng-model="keyword" placeholder="Pencarian">
+                  <i class="search icon"></i>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in tmp_journals">
+              <td>
+                <input type="date" name="date" id="date" ng-model="item.date">
+              </td>
+              <td>
+                <select ui-dropdown class="ui search dropdown" ng-selected="item.accoun_code = account.accoun_code" ng-model="item.account_code"
+                  ng-options="account.code as account.code+' - '+account.name for account in accounts">
+                </select>
+              </td>
+              <td><input type="number" ng-model="item.debit"></td>
+              <td><input type="number" ng-model="item.credit"></td>
+              <td>
+                <div class="ui buttons">
+                  <button ui-popup class="ui tiny basic red button" ng-click="removeTmpJournal($index)" title="Hapus"><i class="trash icon"></i></button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="ui center aligned header">
+          <button class="ui orange button" tabindex="0" ng-click="createJournal(journal)"> <i class="save icon"></i> Simpan Jurnal</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  
+  <form class="ui form">
+    <div class="ui segment">
+      <div class="fields">
+        <div class="three wide field">
+          <label for="">Dari Tanggal</label>
+          <input type="date" name="from" id="from" ng-model="filter.from">
+        </div>
+        <div class="three wide field">
+          <label for="">Sampai Tanggal</label>
+          <input type="date" name="to" id="to" ng-model="filter.to">
+        </div>
+        <div class="five wide field">
+          <label>Akun</label>
+          <select ui-dropdown class="ui search dropdown" ng-model="filter.account_code"
+            ng-options="account.code as account.code+' - '+account.name for account in accounts">
+            <option label="-- Pilih Akun --" value="">-- Pilih Akun --</option>
+          </select>
+        </div>
+        <div class="five wide field">
+          <label for="">&nbsp;</label>
+          <!-- <div class="ui buttons">
+            <button class="ui secondary button" tabindex="0" ng-click="resetFilter()"> <i class="minus icon"></i> Reset</button>
+          </div> -->
+          <div class="ui buttons">
+            <button class="ui primary button" tabindex="0" ng-click="getJournals(filter)"> <i class="check icon"></i> Filter</button>
+            <button class="ui primary button" tabindex="0" ng-click="exportExcel(filter)"> <i class="arrow alternate circle down icon"></i> Export</button>
+            <div class="ui primary button right floated" ng-model="file" name="file" ngf-select="importExcel($file)">
+              <i class="arrow alternate circle up icon"></i>
+              Import
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  
+  <table class="ui celled structured green table">
+    <thead>
+      <tr>
+        <th class="one wide">No</th>
+        <th class="two wide">Tanggal</th>
+        <th class="three wide">Akun</th>
+        <th class="two wide">Debit </th>
+        <th class="two wide">Kredit </th>
+        <th class="two wide">
+          <!-- <div class="ui fluid icon input">
+            <input type="text" placeholder="Pencarian">
+            <i class="search icon"></i>
+          </div> -->
+        </th>
+      </tr>
+    </thead>
+    <tbody ng-repeat="journal in journals | orderBy:'-date'">
+      <tr ng-repeat="item in journal.items">
+        <td ng-if="$index == 0" rowspan="{{journal.items.length}}">{{ item.journal_id }}</td>
+        <td>{{ item.date | date:'dd-MM-y' }}</td>
+        <td>{{ item.account_code }} - {{ getAccountName(item.account_code) }}</td>
+        <td class="right aligned" ng-class="{ 'red':isMinus(item.debit) }">{{ toAccountCur(item.debit) }}</td>
+        <td class="right aligned" ng-class="{ 'red':isMinus(item.credit) }">{{ toAccountCur(item.credit)  }}</td>
+        <td ng-if="$index == 0" rowspan="{{journal.all().length}}">
+          <div class="ui buttons">
+            <button ui-popup class="ui icon basic primary button" ng-click="editJournals(journal.items)" title="Ubah"><i class="edit icon"></i></button>
+            <button ui-popup class="ui icon basic secondary button" ng-click="removeJournals(item.journal_id)" title="Hapus"><i class="trash icon"></i></button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

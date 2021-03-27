@@ -1,40 +1,91 @@
-# electron-quick-start
+# LAS Account Application
 
-**Clone and run for a quick way to see Electron in action.**
+Version Log:
+0.3.3
+- Fixing Upload logo, auto resync
+- Fixing add journal on first save
+- Readd Laporan Arus Kas
 
-This is a minimal Electron application based on the [Quick Start Guide](http://electron.atom.io/docs/tutorial/quick-start) within the Electron documentation.
+0.3.2
+- Fixing Filter on Journal and Ledger
+- Fixing calculation on LPD and LPK
 
-**Use this app along with the [Electron API Demos](http://electron.atom.io/#get-started) app for API code examples to help you get started.**
+0.3.1
+- Fixing Calculation
 
-A basic Electron application needs just these files:
+0.3.0
+- Change dashboard
+- Add filter save state
+- Change Calculation on LPK
+- Add Filter on LPD
+- etc
 
-- `package.json` - Points to the app's main file and lists its details and dependencies.
-- `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
-- `index.html` - A web page to render. This is the app's **renderer process**.
+0.2.1
+- Fixing Bug on Export & Import Journal because of invalid account
+- Fixing Cashflow export
+- Fixing typos
+- Fixing number formatting
 
-You can learn more about each of these components within the [Quick Start Guide](http://electron.atom.io/docs/tutorial/quick-start).
+0.2.0
+- Rebranding and styling
 
-## To Use
+0.1.7
+- Fixing journal import date
+- Fixing edit journal date
+- Enable to add account on journal page
+- Fixing create jurnal bug
+- Change create account behavior
 
-To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+0.1.6
+- Add Cashflow Reports
+- Fixing bug on import Journal
 
-```bash
-# Clone this repository
-git clone https://github.com/electron/electron-quick-start
-# Go into the repository
-cd electron-quick-start
-# Install dependencies
-npm install
-# Run the app
-npm start
-```
+0.1.5
+- Add Import Journal
 
-Learn more about Electron and its API in the [documentation](http://electron.atom.io/docs/).
+TODO:
+- Buat home launcher setelah klik lanjut
+- Buat splash screen
+- Save state to local storage
+- Ledger filter missed
+- ada data sampah dari hasil impor
+- LAK ikutin excel 
+    - Diurut berdasar parent
+    - wording `Aset Bersih` diubah `Saldo Dana`
+    - DIpastikan perhitungan saldo dana (akun 3)
+- minus diganti kurung
+- LPBPAB diganti LPD
+- LPD dipisah berdsar level 2 
+- Laporan Arus Kas dihapus
+- Add account sync
+- Reset filter
 
-## Other Example Apps
+ZAS App
+- SK File lebih dari satu
+- Format jurnal jadi Rupiah
+- LPK itungan masih terbalik (ikuti ledger)
+- Pencarian jurnal disamain dengan ledger
+- Pencarian jurnal beserta siblingnya
+- Reset filter
 
-For more example apps, see the
-[list of boilerplates](http://electron.atom.io/community/#boilerplates)
-created by the awesome electron community.
 
-#### License [CC0 1.0 (Public Domain)](LICENSE.md)
+MAS App
+- laporan arus kas
+- laporan aktifitas
+
+Update 5 Juli 2020
+- Tambah Neraca Saldo Awal
+- LPK Keluarkan semua Saldo Dana dari jurnal
+- Swap LA dan LAK - OK
+- LAK: Hapus Aktivitas Pendanaan - OK
+- LAK: Kas awal tahun dari neraca saldo awal - OK
+- LA: Aset Neto Awal tahun dari neraca saldo awal bagian kredit - OK
+
+- Perhitungan NSA saldo
+- 
+
+## Rapihkan yang zakat dulu
+## Fitur freemium
+- Lock profile
+- banner popup full version
+- form email dan phone

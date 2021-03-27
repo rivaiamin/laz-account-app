@@ -153,5 +153,8 @@ module.exports = {
     compress: true,
     port: 8081,
     watchContentBase: true
+  },
+  node: {
+    fs: "empty"
   }
 };

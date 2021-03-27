@@ -5,36 +5,117 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="shortcut icon" href="assets/icon.png" />
-  <title>LAZ Account App</title>
+  <title>{{ env.app_name }} by Scope</title>
+  <link rel="shortcut icon" ng-href="{{'assets/'+env.app_id+'/icon.ico'}}" />
   <base href="/index.html">
+  <style type="text/css">
+    .preloader {
+      background-color: #FFF;
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+      text-align: center;
+      z-index: 1021;
+    }
+
+    .preloader .loader {
+      width: 100px;
+      margin: 0 auto;
+      position: relative;
+      display: block;
+      top: 40%;
+      color: white ;
+      text-align: center;
+      font-size: 5em;
+    }
+
+    .preloader img {
+      width: 100%;
+    }
+  </style>
 </head>
 
 <body ng-controller="psakCtrl">
+  <div id="preloader" class="preloader">
+    <div class="loader">
+      <img ng-src="{{'assets/'+env.app_id+'/logo.png'}}" alt="">
+      <!-- <i class="fa fa-circle-notch fa-spin"></i> -->
+    </div>
+  </div>
+  <!-- <button ng-if="!licensed" id="upgradeBtn" class="ui labeled icon large green button" ng-click="upgradeLicense()">
+    <i class="cart icon"></i>
+    Beli Full Version
+  </button> -->
   <div id="topNav" class="pure-menu pure-menu-horizontal">
-    <h4 id="headLogo" class="pure-menu-heading"><img src="assets/icon.png" alt=""></h4>
+    <h4 id="headLogo" class="pure-menu-heading">
+      <a href="/" data-tooltip="Awalan" data-inverted="" data-position="bottom center">
+        <img ng-src="{{'assets/'+env.app_id+'/logo-square.png'}}" alt="">
+      </a>
+    </h4>
     <ul class="pure-menu-list">
-      <li class="pure-menu-item"><a href="/account" class="pure-menu-link"><img src="assets/icon/001-balance.png" alt="">
-          <label for="Daftar Akun">Daftar Akun</label></a></li>
-      <li class="pure-menu-item"><a href="/journal" class="pure-menu-link"><img src="assets/icon/009-transaction.png" alt="">
-          <label for="Jurnal Umum">Jurnal Umum</label></a></li>
-      <li class="pure-menu-item"><a href="/ledger" class="pure-menu-link"><img src="assets/icon/022-Ledger.png" alt=""> <label
-          for="Buku Besar">Buku Besar</label></a></li>
-      <li class="pure-menu-item"><a href="/finpos" class="pure-menu-link"><img src="assets/icon/007-balance.png" alt="">
-          <label for="Neraca">Lap Posisi Keuangan</label></a></li>
+      <li ng-class="{'pure-menu-active':state.includes('account')}" class="pure-menu-item"><a href="/account"
+          class="pure-menu-link" data-tooltip="Daftar Akun" data-inverted="" data-position="bottom center">
+          <img class="menu-icon" src="assets/icons/lazapp-01 daftar akun a.png" alt="">
+          <img class="menu-icon-active" src="assets/icons/lazapp-01 daftar akun b.png" alt="">
+          <label for="Daftar Akun">Akun</label></a></li>
+      <li ng-class="{'pure-menu-active':state.includes('journal')}" class="pure-menu-item"><a href="/journal"
+          class="pure-menu-link" data-tooltip="Pencatatan Jurnal" data-inverted="" data-position="bottom center">
+          <img class="menu-icon" src="assets/icons/lazapp-02 jurnal a.png" alt="">
+          <img class="menu-icon-active" src="assets/icons/lazapp-02 jurnal b.png" alt="">
+          <label for="Jurnal Umum">Jurnal</label></a></li>
+      <li ng-class="{'pure-menu-active':state.includes('ledger')}" class="pure-menu-item"><a href="/ledger"
+          class="pure-menu-link"  data-tooltip="Buku Besar" data-inverted="" data-position="bottom center">
+          <img class="menu-icon" src="assets/icons/lazapp-03 buku besar a.png" alt=""> 
+          <img class="menu-icon-active" src="assets/icons/lazapp-03 buku besar b.png" alt=""> 
+          <label for="Buku Besar">Ledger</label></a></li>
+      <li ng-class="{'pure-menu-active':state.includes('initbalance')}" class="pure-menu-item"><a href="/initbalance"
+          class="pure-menu-link"  data-tooltip="Neraca Saldo Awal" data-inverted="" data-position="bottom center">
+          <img class="menu-icon" src="assets/icons/lazapp-04 laporan keuangan a.png" alt="">
+          <img class="menu-icon-active" src="assets/icons/lazapp-04 laporan keuangan b.png" alt="">
+          <label for="Neraca Saldo Awal">NSA</label></a></li>
+      <li ng-class="{'pure-menu-active':state.includes('finposition')}" class="pure-menu-item"><a href="/finposition"
+          class="pure-menu-link" data-tooltip="Laporan Posisi Keuangan" data-inverted="" data-position="bottom center">
+          <img class="menu-icon" src="assets/icons/lazapp-04 laporan keuangan a.png" alt="">
+          <img class="menu-icon-active" src="assets/icons/lazapp-04 laporan keuangan b.png" alt="">
+          <label for="Laporan Posisi Keuangan">LPK</label></a></li>
       <!-- Kumpulan akun kas -->
-      <li class="pure-menu-item"><a href="#" class="pure-menu-link"><img src="assets/icon/010-report.png" alt=""> <label
-          for="Arus Kas">Lap Arus Kas</label></a></li>
-      <li class="pure-menu-item"><a href="#" class="pure-menu-link"><img src="assets/icon/014-devaluation.png" alt=""> <label
-          for="Arus Kas">Lap Aset Tetap</label></a></li>
+      <li ng-class="{'pure-menu-active':state.includes('netasset')}" class="pure-menu-item"><a href="/netasset"
+          class="pure-menu-link">
+          <img class="menu-icon" src="assets/icons/lazapp-05 lpbpab a.png" alt="">
+          <img class="menu-icon-active" src="assets/icons/lazapp-05 lpbpab b.png" alt="">
+          <label for="Arus Kas">LPD</label></a></li>
+      <li ng-class="{'pure-menu-active':state.includes('cash')}" class="pure-menu-item"><a href="/cash"
+          class="pure-menu-link" data-tooltip="Laporan Arus Kas" data-inverted="" data-position="bottom center">
+          <img class="menu-icon" src="assets/icons/lazapp-06 aruskas a.png" alt=""> 
+          <img class="menu-icon-active" src="assets/icons/lazapp-06 aruskas b.png" alt=""> 
+          <label for="Laporan Arus Kas">LAK</label></a>
+      </li>
+      <li ng-class="{'pure-menu-active':state.includes('activity')}" class="pure-menu-item"><a href="/activity"
+          class="pure-menu-link" data-tooltip="Laporan Aktivitas" data-inverted="" data-position="bottom center">
+          <img class="menu-icon" src="assets/icons/lazapp-05 lpbpab a.png" alt="">
+          <img class="menu-icon-active" src="assets/icons/lazapp-05 lpbpab b.png" alt="">
+          <label for="Laporan AKtivitas">LA</label></a>
+      </li>
     </ul>
-    <a href="/institution" id="userLogo" class="pure-menu-link pure-menu-heading">
-      <img src="assets/logo.png" alt="">
+    <a href="/institution" id="userLogo" class="pure-menu-link pure-menu-heading" data-tooltip="Profil Lembaga" data-inverted="" data-position="bottom center">
+      <img id="logoImage" src="http://localhost:5000/api/institution/logo" alt="">
     </a>
   </div>
-  <div id="content" class="ui container" ui-view>
-    
+  <div id="content" ui-view>
+
   </div>
+
+<link rel="stylesheet" ng-href="{{ '/assets/'+env.app_id+'/style.css' }}">
+<script>
+  window.onload = function(){
+    var el = document.getElementById('preloader');
+    setTimeout(function(){ 
+      el.style.display = 'none';
+    }, 1000);
+  };
+</script>
 </body>
 
 </html>

@@ -1,0 +1,95 @@
+<div class="ui container">
+
+  <form class="ui segment form">
+    <h4 class="ui dividing header">Cetak Laporan Neraca Saldo Awal</h4>
+    <div class="fields">
+      <div class="four wide field">
+        <label for="">&nbsp;</label>
+        <button class="ui primary button" tabindex="0" ng-click="generateInitbalance(filter)"> <i
+            class="check icon"></i> Filter</button>
+        <button class="ui secondary button" tabindex="0" ng-click="exportExcel(filter)"> <i
+            class="arrow alternate circle down icon"></i> Export</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="ui segment" ng-if="showContent">
+    <h3 class="ui center aligned header">
+      <div class="content">
+        Laporan Neraca Saldo Awal
+        <div class="sub header">Periode : {{ filter.from | date:'y-MM-dd' }} - {{ filter.to | date:'y-MM-dd' }}</div>
+      </div>
+    </h3>
+
+    <table class="ui celled structured green table">
+      <thead>
+        <tr>
+          <th class="one wide">No Akun</th>
+          <th class="two wide">Nama Akun</th>
+          <th class="two wide">{{ filter.to | date:'y' }}</th>
+        </tr>
+      </thead>
+      <thead>
+        <tr>
+          <th colspan="3">Aset</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in finpositions[1]">
+          <td>{{ item.account_code }}</td>
+          <td>{{ item.name }}</td>
+          <td class="right aligned" ng-class="{ 'red':isMinus(item.debit - item.credit) }">
+            {{ toAccountCur(item.debit - item.credit) }}</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="bold">Jumlah Aset</td>
+          <td class="bold right aligned" ng-class="{ 'red':isMinus(totals[1].debit - totals[1].credit) }">
+            {{ toAccountCur(totals[1].debit - totals[1].credit) }}
+          </td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th colspan="3">Lialibitas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in finpositions[2]">
+          <td>{{ item.account_code }}</td>
+          <td>{{ item.name }}</td>
+          <td class="right aligned" ng-class="{ 'red':isMinus(item.debit - item.credit) }">
+            {{ toAccountCur(item.debit - item.credit) }}</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="bold">Jumlah Lialibilitas</td>
+          <td class="bold right aligned" ng-class="{ 'red':isMinus(liability = totals[2].debit - totals[2].credit) }">
+            {{ toAccountCur(liability) }}</td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th colspan="3">Saldo Dana</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="balance in balances">
+          <td>{{ balance.code }}</td>
+          <td>{{ getAccountName(balance.code) }}</td>
+          <td class="right aligned" ng-class="{ 'red':isMinus(balance.total) }">{{ toAccountCur(balance.total) }}</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="bold">Jumlah Saldo Dana</td>
+          <td class="bold right aligned" ng-class="{ 'red':isMinus(total_balance) }">{{ toAccountCur(total_balance) }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="ui celled structured green table">
+      <tr>
+        <td class="three wide bold" colspan="2" class="bold">Jumlah Lialibilitas dan Saldo Dana</td>
+        <td class="two wide bold right aligned" ng-class="{ 'red':isMinus(total_balance+liability) }">
+          {{ toAccountCur(total_balance+liability) }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

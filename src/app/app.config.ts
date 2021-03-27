@@ -16,10 +16,26 @@ var appConfig = ['$stateProvider', '$qProvider', '$httpProvider', '$urlRouterPro
       url: '/ledger',
       templateUrl: '/views/ledger.html',
       controller: 'ledgerCtrl'
-    }).state('finpost', {
-      url: '/finpos',
-      templateUrl: '/views/finpos.html',
-      controller: 'finposCtrl'
+    }).state('finposition', {
+      url: '/finposition',
+      templateUrl: '/views/finposition.html',
+      controller: 'finpositionCtrl'
+    }).state('initbalance', {
+      url: '/initbalance',
+      templateUrl: '/views/initbalance.html',
+      controller: 'initbalanceCtrl'
+    }).state('netasset', {
+      url: '/netasset',
+      templateUrl: '/views/netasset.html',
+      controller: 'netassetCtrl'
+    }).state('activity', {
+      url: '/activity',
+      templateUrl: '/views/activity.html',
+      controller: 'activityCtrl'
+    }).state('cash', {
+      url: '/cash',
+      templateUrl: '/views/cash.html',
+      controller: 'cashCtrl'
     }).state('journal', {
       url: '/journal',
       templateUrl: '/views/journal.html',

@@ -1,0 +1,128 @@
+<div class="ui container">
+  <form class="ui segment form">
+    <h4 class="ui dividing header">Cetak Laporan Arus Kas</h4>
+    <div class="fields">
+      <div class="three wide field">
+        <label for="">Dari Tanggal</label>
+        <input type="date" name="from" id="from" ng-model="filter.from">
+      </div>
+      <div class="three wide field">
+        <label for="">Sampai Tanggal</label>
+        <input type="date" name="to" id="to" ng-model="filter.to">
+      </div>
+      <div class="four wide field">
+        <label for="">&nbsp;</label>
+        <button class="ui primary button" tabindex="0" ng-click="generateCashflows(filter)"> <i class="check icon"></i>
+          Filter</button>
+        <button class="ui secondary button" tabindex="0" ng-click="exportExcel(filter)"> <i
+            class="arrow alternate circle down icon"></i> Export</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="ui segment" ng-if="showContent">
+    <h3 class="ui center aligned header">
+      <div class="content">
+        Laporan Arus Kas
+        <div class="sub header">Periode : {{ filter.from | date:'y-MM-dd' }} - {{ filter.to | date:'y-MM-dd' }}</div>
+      </div>
+    </h3>
+
+    <table class="ui celled structured green table">
+      <thead>
+        <tr>
+          <th class="one wide">No</th>
+          <th class="three wide">Akun</th>
+          <th class="four wide">Nama Akun</th>
+          <th class="two wide">Jumlah</th>
+        </tr>
+      </thead>
+      <thead>
+        <tr>
+          <th colspan="4">AKTIVITAS OPERASI</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in incomes">
+          <td>{{ $index+1 }}</td>
+          <td>{{ item.account_code }}</td>
+          <td>{{ getAccountName(item.account_code)  }}</td>
+          <td class="right aligned" ng-class="{ 'red':isMinus(item.credit - item.debit) }">
+            {{ toAccountCur(item.credit - item.debit) }}</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="bold">Jumlah Penerimaan</td>
+          <td class="bold right aligned" ng-class="{ 'red':isMinus(total_income) }">
+            {{ toAccountCur(total_income) }}
+          </td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr ng-repeat="item in expenses">
+          <td>{{ $index+1 }}</td>
+          <td>{{ item.account_code }}</td>
+          <td>{{ getAccountName(item.account_code)  }}</td>
+          <td class="right aligned" ng-class="{ 'red':isMinus(item.credit - item.debit) }">
+            {{ toAccountCur(item.credit - item.debit) }}</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="bold">Kas Neto yang Digunakan untuk Aktivitas Operasi</td>
+          <td class="bold right aligned" ng-class="{ 'red':isMinus(total_expense) }">
+            {{ toAccountCur(total_expense) }}
+          </td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th colspan="4">AKTIVITAS INVESTASI</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in invests">
+          <td>{{ $index+1 }}</td>
+          <td>{{ item.account_code }}</td>
+          <td>{{ getAccountName(item.account_code)  }}</td>
+          <td class="right aligned" ng-class="{ 'red':isMinus(item.credit - item.debit) }">
+            {{ toAccountCur(item.credit - item.debit) }}</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="bold">Kas Neto yang Digunakan untuk Aktivitas Investasi</td>
+          <td class="bold right aligned" ng-class="{ 'red':isMinus(total_invest) }">
+            {{ toAccountCur(total_invest) }}
+          </td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th colspan="4">AKTIVITAS PENDANAAN</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in balances">
+          <td>{{ $index+1 }}</td>
+          <td>{{ item.account_code }}</td>
+          <td>{{ getAccountName(item.account_code)  }}</td>
+          <td class="right aligned" ng-class="{ 'red':isMinus(item.credit - item.debit) }">
+            {{ toAccountCur(item.credit - item.debit) }}</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="bold">Kas Neto yang Digunakan untuk Aktivitas Pendanaan</td>
+          <td class="bold right aligned" ng-class="{ 'red':isMinus(total_balance) }">
+            {{ toAccountCur(total_balance) }}
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="3" class="bold"><strong> Kas dan Setara Kas Pada Awal Tahun</strong></th>
+          <th class="bold right aligned" ng-class="{ 'red':isMinus(last_total) }">
+            <strong>{{ toAccountCur(last_total)}}</strong></th>
+        </tr>
+        <tr>
+          <th colspan="3" class="bold"><strong> Kas dan Setara Kas Pada Akhir Tahun</strong></th>
+          <th class="bold right aligned" ng-class="{ 'red':isMinus(total_all + last_total) }">
+            <strong>{{ toAccountCur(total_all) }}</strong></th>
+        </tr>
+      </tfoot>
+  </div>
+</div>

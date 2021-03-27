@@ -1,19 +1,50 @@
 {
-  "name": "laz-account-app",
-  "version": "0.1.0",
-  "description": "LAZ Account Application",
+  "name": "mas-scope-app",
+  "version": "0.3.9",
+  "description": "MAS By Scope",
   "main": "electron.js",
   "build": {
-    "appId": "com.electron.laz",
+    "appId": "com.scope.mas",
     "mac": {
       "category": "public.app-category.utilities"
     },
     "win": {
       "target": "portable",
-      "icon": "build/icon.png"
+      "icon": "build/mas.png"
     },
     "files": [
-      "!data/db.json"
+      "!data/db.json",
+      "!docs/",
+      "!src/",
+      "!dist/",
+      "!.git/",
+      "!.vscode/",
+      "!node_modules/@types/node",
+      "!node_modules/@types/webpack-env",
+      "!node_modules/autoprefixer",
+      "!node_modules/css-loader",
+      "!node_modules/electron",
+      "!node_modules/electron-builder",
+      "!node_modules/file-loader",
+      "!node_modules/html-loader",
+      "!node_modules/html-webpack-plugin",
+      "!node_modules/html-webpack-template",
+      "!node_modules/image-webpack-loader",
+      "!node_modules/json-server",
+      "!node_modules/mini-css-extract-plugin",
+      "!node_modules/node-sass",
+      "!node_modules/postcss-loader",
+      "!node_modules/raw-loader",
+      "!node_modules/rimraf",
+      "!node_modules/sass-loader",
+      "!node_modules/serve",
+      "!node_modules/style-loader",
+      "!node_modules/ts-loader",
+      "!node_modules/typescript",
+      "!node_modules/url-loader",
+      "!node_modules/webpack",
+      "!node_modules/.bin/",
+      "!node_modules/.cache/"
     ]
   },
   "scripts": {
@@ -26,7 +57,7 @@
   },
   "repository": "https://github.com/rivaiamin/laz-account-app",
   "keywords": [
-    "laz",
+    "mas",
     "account",
     "Electron"
   ],
@@ -60,6 +91,8 @@
   },
   "dependencies": {
     "angular": "^1.7.9",
+    "angular-expressions": "^1.0.1",
+    "angular-i18n": "^1.7.9",
     "angular-messages": "^1.7.9",
     "angular-resource": "^1.7.9",
     "angular-sanitize": "^1.7.9",
@@ -67,21 +100,28 @@
     "body-parser": "^1.19.0",
     "busboy": "^0.3.1",
     "collect.js": "^4.18.9",
+    "connect-busboy": "0.0.2",
     "cors": "^2.8.5",
-    "docxtemplater": "^3.16.7",
-    "dotenv": "4.0.0",
+    "dotenv": "^4.0.0",
+    "excel4node": "^1.7.2",
     "express": "^4.17.1",
     "font-awesome": "^4.7.0",
+    "getmac": "^5.15.0",
+    "intl": "^1.2.5",
     "jquery": "^3.4.1",
     "lodash": "^4.17.15",
     "lowdb": "^1.0.0",
     "morgan": "^1.9.1",
     "ng-file-upload": "^12.2.13",
     "ngstorage": "^0.3.11",
+    "node-xlsx": "^0.15.0",
     "pizzip": "^3.0.6",
     "popper.js": "^1.16.0",
     "semantic-ui": "^2.4.2",
     "semantic-ui-css": "^2.4.1",
     "sweetalert2": "^8.19.0"
+  },
+  "config": {
+    "app_id": "mas"
   }
 }

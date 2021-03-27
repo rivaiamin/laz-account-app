@@ -6,6 +6,7 @@
 body {
   font-family: 'Quicksand';
   background: #FAFAFA;
+  font-size: 1.2em;
 }
 
 #topNav {
@@ -30,7 +31,7 @@ body {
 }
 
 #headLogo img {
-  width: 5em;
+  width: 6em;
 }
 
 #userLogo {
@@ -41,6 +42,13 @@ body {
 #userLogo img {
 	width: 4.5em;
 	margin: 0.2em;
+}
+
+#upgradeBtn {
+  z-index: 1000;
+  position: fixed;
+  top: 1em;
+  right: 10em;
 }
 
 .mt-20 {
@@ -77,11 +85,23 @@ body {
 }
 
 .pure-menu-link {
-	text-align: center;
+  text-align: center;
+  width: 5.5em;
 }
 
 .pure-menu-link img {
 	width: 3em
+}
+
+.pure-menu-item  .menu-icon-active {
+  display: none;
+}
+
+.pure-menu-item.pure-menu-active .menu-icon {
+  display: none;
+}
+.pure-menu-item.pure-menu-active .menu-icon-active {
+  display: initial;
 }
 
 .pure-menu-link label {
@@ -92,8 +112,47 @@ body {
 	margin: 1em;
 }
 
+.ui.action > .ui.selection.dropdown {
+  min-width: 80%;
+  max-width: 80%;
+}
+
 /* Semantic UI custom */
+
+.ui.button {
+  border-radius: 3em;
+}
+.ui.buttons .button:first-child {
+  border-left: none;
+  margin-left: 0em;
+  border-top-left-radius: 2em;
+  border-bottom-left-radius: 2em;
+}
+.ui.buttons .button:last-child {
+  border-left: none;
+  margin-left: 0em;
+  border-top-right-radius: 2em;
+  border-bottom-right-radius: 2em;
+}
 
 .ui.selection.dropdown {
   min-width: 100%;
+}
+
+.bold {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.red {
+  color: #C50000;
+}
+
+.ui.table tfoot th {
+  font-weight: bold;
+}
+
+.ui.table tfoot th.red {
+  font-weight: bold;
+  color: #C50000;
 }

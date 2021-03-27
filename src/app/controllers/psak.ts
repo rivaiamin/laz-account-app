@@ -1,15 +1,20 @@
 // import * as $ from 'jquery';
 import Swal from 'sweetalert2';
 
-var psakCtrl = ['$scope', '$rootScope', '$localStorage', '$location', '$state', 'Env',
-  function ($scope, $rootScope, $localStorage, $location, $state, Env) {
+var psakCtrl = ['$scope', '$rootScope', '$localStorage', '$location', '$state', 'Env', 'accountFactory', 'institutionFactory',
+  function ($scope, $rootScope, $localStorage, $location, $state, Env, accountFactory, institutionFactory) {
 
     $rootScope.env = Env;
+    $scope.state = $state;
     $rootScope.messages = {
       saved: "Data telah tersimpan",
       deleted: "Data telah terhapus",
       notLoggedIn: "Email atau password salah"
     }
+    if (!$localStorage.filter) {
+      $localStorage.filter = [];
+    }
+    $rootScope.startup = true;
 
     $rootScope.getInitial = function(name) {
       var result = '';
@@ -23,25 +28,10 @@ var psakCtrl = ['$scope', '$rootScope', '$localStorage', '$location', '$state', 
       return result.toUpperCase();
     }
 
-    // moved to DB
-    $scope.score_criterias = [
-      {
-        score_criteria_id: 1,
-        name: "Sikap Spiritual"
-      },
-      {
-        score_criteria_id: 2,
-        name: "Sikap Sosial"
-      },
-      {
-        score_criteria_id: 3,
-        name: "Pengetahuan"
-      },
-      {
-        score_criteria_id: 4,
-        name: "Keterampilan"
-      },
-    ];
+    institutionFactory.startup().then(valid => {
+      $localStorage.licensed = valid;
+      $scope.licensed = valid;
+    });
 
     $scope.isLoggedIn = function () {
       if ($localStorage.currentUser != undefined) {
@@ -67,6 +57,26 @@ var psakCtrl = ['$scope', '$rootScope', '$localStorage', '$location', '$state', 
         type: type
       });
     } */
+
+    accountFactory.getAccounts().then(function (accounts) {
+      accounts.push({ code: '', name: "-- Pilih Akun --" });
+      $scope.accounts = accounts;
+    })
+  
+    $scope.getAccountName = function(code) {
+      var index = $scope.indexSearch($scope.accounts, 'code', code);
+      if ($scope.accounts[index]) {
+        return $scope.accounts[index].name;
+      } else {
+        return "";
+      }
+    }
+
+    $scope.upgradeLicense = function() {
+      institutionFactory.upgradeLicense().then(success => {
+        console.log("upgrade license: " + success);
+      })
+    }
 
     $rootScope.swalNotif = function (message: string, type) {
       Swal.fire({
@@ -108,6 +118,24 @@ var psakCtrl = ['$scope', '$rootScope', '$localStorage', '$location', '$state', 
         return groups[group];
       })
     };
+
+    $scope.isMinus = function($num) {
+      if ($num < 0) return true;
+      else return false;
+    }
+
+    $scope.toAccountCur = function(num) {
+      if (!num) return num;
+      var text = '';
+      if (num < 0) {
+        num *= -1;
+        text = num.toLocaleString('id-ID');
+        text = '(' + text + ')';
+      } else {
+        text = num.toLocaleString('id-ID');
+      }
+      return text;
+    }
   }
 ];
 

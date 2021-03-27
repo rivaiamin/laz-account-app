@@ -2,52 +2,182 @@
   .masthead.segment {
     padding: 1em 0em;
   }
+
   .masthead .logo.item img {
     margin-right: 1em;
   }
+
   .masthead .ui.menu .ui.button {
     margin-left: 0.5em;
   }
+
   .masthead h1.ui.header {
     margin-top: 1em;
     margin-bottom: 0em;
     font-size: 4em;
     font-weight: normal;
   }
+
   .masthead h2 {
     font-size: 1.7em;
     font-weight: normal;
   }
+
+  .sponsor-banner {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.3rem;
+    background-color: #ECECEC;
+  }
+
   @media only screen and (max-width: 700px) {
     .ui.fixed.menu {
       display: none !important;
     }
+
     .secondary.pointing.menu .item,
     .secondary.pointing.menu .menu {
       display: none;
     }
+
     .secondary.pointing.menu .toc.item {
       display: block;
     }
+
     .masthead.segment {
       min-height: 350px;
     }
+
     .masthead h1.ui.header {
       font-size: 2em;
       margin-top: 1.5em;
     }
+
     .masthead h2 {
       margin-top: 0.5em;
       font-size: 1.5em;
     }
   }
 </style>
-<div class="ui vertical masthead center aligned segment">
-  <div class="ui text container">
-    <h1 class="ui header">
-      LAZ Accounts Application
-    </h1>
-    <h2>Do whatever you want when you want to.</h2>
-    <a class="ui huge primary button" href="/institution">Get Started <i class="right arrow icon"></i></a>
+<div id="welcomeModal" class="ui modal">
+  <div class="content">
+    <div class="ui text container center aligned">
+      <img ng-src="{{'assets/'+env.app_id+'/logo.png'}}" width="150" alt="">
+      <p>Assalamu'alaykum wa rahmatullah wa barakatuh</p>
+      <p>Selamat datang di {{ env.app_name }} software akuntansi untuk Lembaga Amil Zakat. Software yang dikembangkan oleh Tim SCOPE
+        sebagai solusi untuk membantu Lembaga Amil Zakat dalam menyusun dan menyiapkan laporan keuangan yang
+        akuntabilitas dan transparansi.</p>
+      <p>Segala bentuk pertanyaan dapat menghubungi team kami.</p>
+        <p></p>
+      <div class="ui grid">
+        <div class="five wide column">
+          <p>
+            <br>
+            Didukung
+          </p>
+          <img src="assets/images/image-square.png" width="80" alt="">
+        </div>
+        <div class="six wide column">
+          <p>Salam <br> Pengembang</p>
+          <img src="assets/scope-logo01.png" width="100" alt="">
+        </div>
+        <div class="five wide column">
+          <div class="ui primary button" style="margin-top: 2em">
+            <a href="#" ng-click="closeModal()">
+              <h5 class="ui icon header" style="margin: 0em 0.4em 0.4em 0.4em; color: white">
+                <i class="angle double right icon"></i>
+                <div class="content">
+                  MULAI 
+                </div>
+              </h5>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui fluid container" style="width:95%">
+  <div class="ui grid">
+    <div class="eleven wide column">
+      
+      <div style="max-width: 550px; margin: 0 auto;">
+        <div class="ui four doubling link cards">
+          <div class="card">
+            <a href="/account" class="image">
+              <img src="/assets/icons/lazapp-01 daftar akun a.png">
+            </a>
+            <div class="content">
+              <h4>Daftar Akun</h4>
+            </div>
+          </div>
+          <div class="card">
+            <a href="/journal" class="image">
+              <img src="/assets/icons/lazapp-02 jurnal a.png">
+            </a>
+            <div class="content">
+              <h4>Jurnal</h4>
+            </div>
+          </div>
+          <div class="card">
+            <a href="/ledger" class="image">
+              <img src="/assets/icons/lazapp-03 buku besar a.png">
+            </a>
+            <div class="content">
+              <h4>Buku Besar</h4>
+            </div>
+          </div>
+          <div class="card">
+            <a href="/initbalance" class="image">
+              <img src="/assets/icons/lazapp-04 laporan keuangan a.png">
+            </a>
+            <div class="content">
+              <h4>Neraca Saldo Awal</h4>
+            </div>
+          </div>
+          <div class="card">
+            <a href="/finposition" class="image">
+              <img src="/assets/icons/lazapp-04 laporan keuangan a.png">
+            </a>
+            <div class="content">
+              <h4>Laporan Posisi Keuangan</h4>
+            </div>
+          </div>
+          <div class="card">
+            <a href="/netasset" class="image">
+              <img src="/assets/icons/lazapp-05 lpbpab a.png">
+            </a>
+            <div class="content">
+              <h4>Laporan Aktivitas</h4>
+            </div>
+          </div>
+          <div class="card">
+            <a href="/netasset" class="image">
+              <img src="/assets/icons/lazapp-06 aruskas a.png">
+            </a>
+            <div class="content">
+              <h4>Laporan Arus Kas</h4>
+            </div>
+          </div>
+          <div class="card">
+            <a href="/institution" class="image">
+              <img src="http://localhost:5000/api/institution/logo">
+            </a>
+            <div class="content">
+              <h4>Profil Lembaga</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="five wide column">
+      <div class="sponsor-banner">
+        <h3 style="text-align: center; padding-top: 50%">
+          Sponsor
+        </h3>
+      </div>
+    </div>
   </div>
 </div>

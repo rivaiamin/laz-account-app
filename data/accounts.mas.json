@@ -1,0 +1,604 @@
+[
+  {
+    "parent_code": 0,
+    "code": 1,
+    "level": 1,
+    "name": "Aset",
+    "description": ""
+  },
+  {
+    "parent_code": 1,
+    "code": 11,
+    "level": 2,
+    "name": "Aset Lancar",
+    "description": ""
+  },
+  {
+    "parent_code": 11,
+    "code": 110001,
+    "level": 3,
+    "name": "Kas",
+    "description": ""
+  },
+  {
+    "parent_code": 11,
+    "code": 110002,
+    "level": 3,
+    "name": "Kas Kecil",
+    "description": ""
+  },
+  {
+    "parent_code": 11,
+    "code": 110003,
+    "level": 3,
+    "name": "Bank",
+    "description": ""
+  },
+  {
+    "parent_code": 11,
+    "code": 110004,
+    "level": 3,
+    "name": "Persediaan",
+    "description": ""
+  },
+  {
+    "parent_code": 11,
+    "code": 110005,
+    "level": 3,
+    "name": "Piutang",
+    "description": ""
+  },
+  {
+    "parent_code": 1,
+    "code": 12,
+    "level": 2,
+    "name": "Aset tetap",
+    "description": ""
+  },
+  {
+    "parent_code": 12,
+    "code": 120001,
+    "level": 3,
+    "name": "Tanah",
+    "description": ""
+  },
+  {
+    "parent_code": 12,
+    "code": 120002,
+    "level": 3,
+    "name": "Bangunan",
+    "description": ""
+  },
+  {
+    "parent_code": 12,
+    "code": 120003,
+    "level": 3,
+    "name": "Akumulasi Penyusutan Bangunan",
+    "description": ""
+  },
+  {
+    "parent_code": 12,
+    "code": 120004,
+    "level": 3,
+    "name": "Kendaraan",
+    "description": ""
+  },
+  {
+    "parent_code": 12,
+    "code": 120005,
+    "level": 3,
+    "name": "Akumulasi Penyusutan Kendaraan",
+    "description": ""
+  },
+  {
+    "parent_code": 12,
+    "code": 120006,
+    "level": 3,
+    "name": "Peralatan",
+    "description": ""
+  },
+  {
+    "parent_code": 12,
+    "code": 120007,
+    "level": 3,
+    "name": "Akumulasi Penyusutan Peralatan",
+    "description": ""
+  },
+  {
+    "parent_code": 0,
+    "code": 2,
+    "level": 1,
+    "name": "Kewajiban",
+    "description": ""
+  },
+  {
+    "parent_code": 2,
+    "code": 21,
+    "level": 2,
+    "name": "Kewajiban jangka pendek",
+    "description": ""
+  },
+  {
+    "parent_code": 21,
+    "code": 210001,
+    "level": 3,
+    "name": "Hutang Jangka Pendek",
+    "description": ""
+  },
+  {
+    "parent_code": 21,
+    "code": 210004,
+    "level": 3,
+    "name": "Hutang lain-lain",
+    "description": ""
+  },
+  {
+    "parent_code": 2,
+    "code": 22,
+    "level": 2,
+    "name": "Kewajiban jangka panjang",
+    "description": ""
+  },
+  {
+    "parent_code": 22,
+    "code": 220001,
+    "level": 3,
+    "name": "Hutang Jangka Panjang",
+    "description": ""
+  },
+  {
+    "parent_code": 0,
+    "code": 3,
+    "level": 1,
+    "name": "Saldo Dana",
+    "description": ""
+  },
+  {
+    "parent_code": 3,
+    "code": 31,
+    "level": 2,
+    "name": "Saldo Dana Terikat",
+    "description": ""
+  },
+  {
+    "parent_code": 31,
+    "code": 310001,
+    "level": 3,
+    "name": "Saldo Dana Peribadatan",
+    "description": ""
+  },
+  {
+    "parent_code": 31,
+    "code": 310002,
+    "level": 3,
+    "name": "Saldo Dana Pendidikan",
+    "description": ""
+  },
+  {
+    "parent_code": 31,
+    "code": 310003,
+    "level": 3,
+    "name": "Saldo Dana ZISWAF",
+    "description": ""
+  },
+  {
+    "parent_code": 3,
+    "code": 32,
+    "level": 2,
+    "name": "Saldo Dana Tidak Terikat",
+    "description": ""
+  },
+  {
+    "parent_code": 32,
+    "code": 320004,
+    "level": 2,
+    "name": "Saldo Dana Operasional",
+    "description": ""
+  },
+  {
+    "parent_code": 32,
+    "code": 320005,
+    "level": 2,
+    "name": "Saldo Dana Tidak Terikat Lainnya",
+    "description": ""
+  },
+  {
+    "parent_code": 0,
+    "code": 4,
+    "level": 1,
+    "name": "Pendapatan",
+    "description": ""
+  },
+  {
+    "parent_code": 4,
+    "code": 41,
+    "level": 2,
+    "name": "Pendapatan Terikat Peribadatan",
+    "description": ""
+  },
+  {
+    "parent_code": 41,
+    "code": 410001,
+    "level": 3,
+    "name": "Infaq Kotak jumat",
+    "description": ""
+  },
+  {
+    "parent_code": 41,
+    "code": 410002,
+    "level": 3,
+    "name": "Infaq PHBI",
+    "description": ""
+  },
+  {
+    "parent_code": 41,
+    "code": 410003,
+    "level": 3,
+    "name": "Infaq Pengajian",
+    "description": ""
+  },
+  {
+    "parent_code": 41,
+    "code": 410004,
+    "level": 3,
+    "name": "Infaq Ramadhan",
+    "description": ""
+  },
+  {
+    "parent_code": 41,
+    "code": 410005,
+    "level": 3,
+    "name": "Infaq peribadatan lainnya",
+    "description": ""
+  },
+  {
+    "parent_code": 4,
+    "code": 42,
+    "level": 2,
+    "name": "Pendapatan Terikat Pendidikan",
+    "description": ""
+  },
+  {
+    "parent_code": 42,
+    "code": 420001,
+    "level": 3,
+    "name": "Infaq TPA dan Tahfidz",
+    "description": ""
+  },
+  {
+    "parent_code": 4,
+    "code": 43,
+    "level": 2,
+    "name": "Pendapatan Terikat ZISWAF",
+    "description": ""
+  },
+  {
+    "parent_code": 43,
+    "code": 430001,
+    "level": 3,
+    "name": "Infaq Donatur",
+    "description": ""
+  },
+  {
+    "parent_code": 43,
+    "code": 430002,
+    "level": 3,
+    "name": "Infaq Kotak Amal",
+    "description": ""
+  },
+  {
+    "parent_code": 43,
+    "code": 430003,
+    "level": 3,
+    "name": "Zakat Fitrah",
+    "description": ""
+  },
+  {
+    "parent_code": 43,
+    "code": 430004,
+    "level": 3,
+    "name": "Fidyah",
+    "description": ""
+  },
+  {
+    "parent_code": 43,
+    "code": 430005,
+    "level": 3,
+    "name": "Infaq untuk Baksos",
+    "description": ""
+  },
+  {
+    "parent_code": 43,
+    "code": 430006,
+    "level": 3,
+    "name": "Waqaf",
+    "description": ""
+  },
+  {
+    "parent_code": 4,
+    "code": 44,
+    "level": 2,
+    "name": "Pendapatan Tidak Terikat Operasional",
+    "description": ""
+  },
+  {
+    "parent_code": 44,
+    "code": 440001,
+    "level": 3,
+    "name": "Pendapatan Sewa Peralatan",
+    "description": ""
+  },
+  {
+    "parent_code": 44,
+    "code": 440002,
+    "level": 3,
+    "name": "Pendapatan Sewa Ruangan",
+    "description": ""
+  },
+  {
+    "parent_code": 44,
+    "code": 440003,
+    "level": 3,
+    "name": "Pendapatan Parkir",
+    "description": ""
+  },
+  {
+    "parent_code": 44,
+    "code": 440004,
+    "level": 3,
+    "name": "Infaq Pengurusan Jenazah",
+    "description": ""
+  },
+  {
+    "parent_code": 4,
+    "code": 45,
+    "level": 2,
+    "name": "Pendapatan Tidak Terikat Lainnya",
+    "description": ""
+  },
+  {
+    "parent_code": 45,
+    "code": 450001,
+    "level": 3,
+    "name": "Pendapatan Lainnya",
+    "description": ""
+  },
+  {
+    "parent_code": 0,
+    "code": 5,
+    "level": 1,
+    "name": "Beban",
+    "description": ""
+  },
+  {
+    "parent_code": 5,
+    "code": 51,
+    "level": 2,
+    "name": "Beban Terikat Peribadatan",
+    "description": ""
+  },
+  {
+    "parent_code": 51,
+    "code": 510001,
+    "level": 3,
+    "name": "Insentif Pembicara/Khatib",
+    "description": ""
+  },
+  {
+    "parent_code": 51,
+    "code": 510002,
+    "level": 3,
+    "name": "Beban PHBI",
+    "description": ""
+  },
+  {
+    "parent_code": 51,
+    "code": 510003,
+    "level": 3,
+    "name": "Beban Pengajian",
+    "description": ""
+  },
+  {
+    "parent_code": 51,
+    "code": 510004,
+    "level": 3,
+    "name": "Beban Pengeluaran Ramadhan",
+    "description": ""
+  },
+  {
+    "parent_code": 51,
+    "code": 510005,
+    "level": 3,
+    "name": "Beban Peribadatan Lainnya",
+    "description": ""
+  },
+  {
+    "parent_code": 5,
+    "code": 52,
+    "level": 2,
+    "name": "Beban Terikat Pendidikan",
+    "description": ""
+  },
+  {
+    "parent_code": 52,
+    "code": 520001,
+    "level": 3,
+    "name": "Beban operasional TPA dan Tahfidz",
+    "description": ""
+  },
+  {
+    "parent_code": 52,
+    "code": 520002,
+    "level": 3,
+    "name": "Beban Pelatihan",
+    "description": ""
+  },
+  {
+    "parent_code": 5,
+    "code": 53,
+    "level": 2,
+    "name": "Penyaluran Terikat ZISWAF",
+    "description": ""
+  },
+  {
+    "parent_code": 53,
+    "code": 530001,
+    "level": 3,
+    "name": "Penyaluran Zakat Fitrah dan Fidyah",
+    "description": ""
+  },
+  {
+    "parent_code": 53,
+    "code": 530002,
+    "level": 3,
+    "name": "Penyaluran Beasiswa",
+    "description": ""
+  },
+  {
+    "parent_code": 53,
+    "code": 530003,
+    "level": 3,
+    "name": "Penyaluran untuk Besuk Orang Sakit",
+    "description": ""
+  },
+  {
+    "parent_code": 53,
+    "code": 530004,
+    "level": 3,
+    "name": "Sumbangan Anak Yatim",
+    "description": ""
+  },
+  {
+    "parent_code": 53,
+    "code": 530005,
+    "level": 3,
+    "name": "Sumbangan Ta'ziyah",
+    "description": ""
+  },
+  {
+    "parent_code": 53,
+    "code": 530006,
+    "level": 3,
+    "name": "Sumbangan Bencana Alam",
+    "description": ""
+  },
+  {
+    "parent_code": 53,
+    "code": 530007,
+    "level": 3,
+    "name": "Sumbangan lain-lain",
+    "description": ""
+  },
+  {
+    "parent_code": 5,
+    "code": 54,
+    "level": 2,
+    "name": "Beban Tidak Terikat Operasional",
+    "description": ""
+  },
+  {
+    "parent_code": 54,
+    "code": 540001,
+    "level": 3,
+    "name": "Beban Listrik, Air, dan Telepon",
+    "description": ""
+  },
+  {
+    "parent_code": 54,
+    "code": 540002,
+    "level": 3,
+    "name": "Beban Pemeliharaan",
+    "description": ""
+  },
+  {
+    "parent_code": 54,
+    "code": 540003,
+    "level": 3,
+    "name": "Beban Administrasi",
+    "description": ""
+  },
+  {
+    "parent_code": 54,
+    "code": 540004,
+    "level": 3,
+    "name": "Beban Perlengkapan",
+    "description": ""
+  },
+  {
+    "parent_code": 54,
+    "code": 540005,
+    "level": 3,
+    "name": "Beban Transportasi",
+    "description": ""
+  },
+  {
+    "parent_code": 54,
+    "code": 540006,
+    "level": 3,
+    "name": "Insentif Pengurus Masjid",
+    "description": ""
+  },
+  {
+    "parent_code": 5,
+    "code": 55,
+    "level": 2,
+    "name": "Beban Tidak Terikat Lainnya",
+    "description": ""
+  },
+  {
+    "parent_code": 55,
+    "code": 550001,
+    "level": 3,
+    "name": "Beban Lainnya",
+    "description": ""
+  },
+  {
+    "parent_code": 5,
+    "code": 56,
+    "level": 2,
+    "name": "Pembelian",
+    "description": ""
+  },
+  {
+    "parent_code": 56,
+    "code": 560001,
+    "level": 3,
+    "name": "Pembelian Perlengkapan",
+    "description": ""
+  },
+  {
+    "parent_code": 56,
+    "code": 560002,
+    "level": 3,
+    "name": "Pembelian Peralatan",
+    "description": ""
+  },
+  {
+    "parent_code": 56,
+    "code": 560003,
+    "level": 3,
+    "name": "Pembelian Kendaraan",
+    "description": ""
+  },
+  {
+    "parent_code": 5,
+    "code": 57,
+    "level": 2,
+    "name": "Renovasi dan Pembangunan",
+    "description": ""
+  },
+  {
+    "parent_code": 57,
+    "code": 570001,
+    "level": 3,
+    "name": "Pembelian Material",
+    "description": ""
+  },
+  {
+    "parent_code": 57,
+    "code": 570002,
+    "level": 3,
+    "name": "Upah Tukang",
+    "description": ""
+  }
+ ]

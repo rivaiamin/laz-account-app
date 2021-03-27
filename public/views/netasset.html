@@ -1,0 +1,94 @@
+<div class="ui container">
+
+
+  <form class="ui segment form">
+    <h4 class="ui dividing header">Cetak Laporan Aktivitas</h4>
+    <div class="fields">
+      <div class="three wide field">
+        <label for="">Dari Tanggal</label>
+        <input type="date" name="from" id="from" ng-model="filter.from">
+      </div>
+      <div class="three wide field">
+        <label for="">Sampai Tanggal</label>
+        <input type="date" name="to" id="to" ng-model="filter.to">
+      </div>
+      <div class="three wide field">
+        <label for="">Akun</label>
+        <select ui-dropdown class="ui search dropdown" ng-selected="account.subparent == filter.parent_code"
+          ng-model="filter.parent_code" ng-options="account.subparent as account.name for account in balance_accounts">
+          <option value="">-- Pilih Akun --</option>
+        </select>
+      </div>
+      <div class="four wide field">
+        <label for="">&nbsp;</label>
+        <button class="ui primary button" tabindex="0" ng-click="generateNetasset(filter)"> <i class="check icon"></i>
+          Filter</button>
+        <button class="ui secondary button" tabindex="0" ng-click="exportExcel(filter)"> <i
+            class="arrow alternate circle down icon"></i> Export</button>
+      </div>
+    </div>
+  </form>
+
+
+  <div class="ui segment" ng-if="showContent">
+    <h3 class="ui center aligned header">
+      <div class="content">
+        Laporan Aktivitas
+        <div class="sub header">Periode : {{ filter.from | date:'y-MM-dd' }} - {{ filter.to | date:'y-MM-dd' }}</div>
+      </div>
+    </h3>
+
+    <table class="ui celled structured green table">
+      <thead>
+        <tr>
+          <th class="one wide">No Akun</th>
+          <th class="two wide">Nama Akun</th>
+          <th class="two wide">{{ filter.to | date:'y' }}</th>
+        </tr>
+      </thead>
+      <thead>
+        <tr>
+          <th colspan="3">Penerimaan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in netassets[4]">
+          <td>{{ item.account_code }}</td>
+          <td>{{ item.name  }}</td>
+          <td class="right aligned" ng-class="{ 'red':isMinus(item.credit - item.debit) }">
+            {{ toAccountCur(item.credit - item.debit) }}</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="bold">Jumlah Penerimaan</td>
+          <td class="bold right aligned" ng-class="{ 'red':isMinus(income = totals[4].credit - totals[4].debit) }">
+            {{ toAccountCur(income) }}</td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th colspan="3">Pengeluaran</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in netassets[5]">
+          <td>{{ item.account_code }}</td>
+          <td>{{ item.name  }}</td>
+          <td class="right aligned" ng-class="{ 'red':isMinus(item.debit - item.credit) }">
+            {{ toAccountCur(item.debit - item.credit) }}</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="bold">Jumlah Pengeluaran</td>
+          <td class="bold right aligned" ng-class="{ 'red':isMinus(expense = totals[5].debit - totals[5].credit) }">
+            {{ toAccountCur(expense) }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="ui celled structured green table">
+      <tr>
+        <td class="three wide bold" colspan="2">Saldo Dana</td>
+        <td class="two wide bold right aligned" ng-class="{ 'red':isMinus(income - expense) }">
+          {{ toAccountCur(income - expense) }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

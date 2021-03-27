@@ -1,122 +1,145 @@
-<h3 class="ui header">Daftar Akun</h3>
-<table class="ui table orange bordered">
-  <thead>
-    <tr>
-      <th class="two wide">Nomor Akun</th>
-      <th class="two wide">Akun Induk</th>
-      <th class="one wide">Tingkat</th>
-      <th class="four wide">Nama Akun</th>
-      <th class="six wide">Keterangan</th>
-      <!-- <th class="one wide">Saldo Normal</th> -->
-      <th>
+<div class="ui container">
+  <form class="ui form">
+    <div class="inline fields">
+      <div class="nine wide field">
+        <h3 class="ui header">
+          Daftar Akun
+        </h3>
+      </div>
+      <div class="five wide field">
         <div class="ui fluid icon input">
           <input type="text" placeholder="Pencarian" ng-model="keyword">
           <i class="search icon"></i>
         </div>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="ui form">
-      <td>
-        <div class="ui fluid input">
-          <input ng-model="account.code" type="text" placeholder="" maxlength="6">
-        </div>
-      </td>
-      <td>
-        <select ng-model="account.parent_code" ui-dropdown class="ui dropdown" ng-model="account.parent_code" ng-options="item.code as item.code for item in accounts">
-        </select>
-      </td>
-      <td>
-      </td>
-      <td>
-        <div class="ui fluid input">
-          <input type="text" placeholder="nama akun" ng-model="account.name">
-        </div>
-      </td>
-      <td>
-        <div class="field">
-          <textarea cols="30" rows="3" ng-model="account.description"></textarea>
-        </div>
-      </td>
-      <!-- <td>
-        <div class="inline fields">
-          <div class="field">
-            <div ui-radio class="ui radio checkbox">
-              <input type="radio" ng-model="account.balance" name="balance" value="D" tabindex="0" class="hidden">
-              <label>D</label>
-            </div>
-          </div>
-          <div class="field">
-            <div ui-radio class="ui radio checkbox">
-              <input type="radio" ng-model="account.balance" name="balance" value="K" tabindex="1" class="hidden">
-              <label>K</label>
-            </div>
-          </div>
-        </div>
-      </td> -->
-      <td>
-        <button ng-click="createAccount(account)" ng-class="{ 'loading': onSave }" 
-          ng-disabled="onSave" class="ui fluid button primary"><i class="save icon"></i> Simpan </button>
-        <!-- <button ng-click="account = {}" class="ui button"><i class="undo icon"></i> Batal </button> -->
-      </td>
-    </tr>
-    <tr ng-repeat="item in accounts | orderBy:'sequence' | filter:keyword">
-      <td>{{ item.code }}</td>
-      <td>{{ item.parent_code }}</td>
-      <td>{{ item.level }}</td>
-      <td>
-        <span ng-if="onEdit == item.code">
+      </div>
+      <div class="two wide field">
+        <button class="ui small primary button" tabindex="0" ng-click="exportExcel(filter)"> <i class="arrow alternate circle down icon"></i> Export</button>
+      </div>
+    </div>
+  </form>
+  
+  <table class="ui table green bordered">
+    <thead>
+      <tr>
+        <th class="one wide">Tingkat</th>
+        <th class="two wide">Akun Induk</th>
+        <th class="two wide">Nomor Akun</th>
+        <th class="three wide">Nama Akun</th>
+        <th class="four wide">Keterangan</th>
+        <!-- <th class="one wide">Saldo Normal</th> -->
+        <th class="two wide">
+          
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="ui form">
+        <td>
+          <select ui-dropdown class="ui dropdown" ng-model="account.level" ng-change="setCodeLength(account.level)">
+            <option value=""></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </td>
+        <td>
+          <select ui-dropdown class="ui dropdown" ng-model="account.parent_code" ng-options="item.code as item.code for item in accounts">
+          </select>
+        </td>
+        <td>
           <div class="ui fluid input">
-            <input type="text" ng-model="item.name">
+            <input ng-model="account.code" type="text" placeholder="" maxlength="{{ code_length }}">
           </div>
-        </span>
-        <span ng-if="onEdit != item.code">
-          {{ item.name }}
-        </span>
-      </td>
-      <td>
-        <span ng-if="onEdit == item.code" class="ui form">
+        </td>
+        <td>
+          <div class="ui fluid input">
+            <input type="text" placeholder="nama akun" ng-model="account.name">
+          </div>
+        </td>
+        <td>
           <div class="field">
-            <textarea rows="3" ng-model="item.description"></textarea>
+            <textarea cols="30" rows="3" ng-model="account.description"></textarea>
           </div>
-        </span>
-        <span ng-if="onEdit != item.code">
-          {{ item.description }}
-        </span>
-      </td>
-      <!-- <td>
-        <span ng-if="onEdit == item.code">
+        </td>
+        <!-- <td>
           <div class="inline fields">
             <div class="field">
               <div ui-radio class="ui radio checkbox">
-                <input type="radio" ng-model="item.balance" name="balance" value="D" tabindex="0" class="hidden">
+                <input type="radio" ng-model="account.balance" name="balance" value="D" tabindex="0" class="hidden">
                 <label>D</label>
               </div>
             </div>
             <div class="field">
               <div ui-radio class="ui radio checkbox">
-                <input type="radio" ng-model="item.balance" name="balance" value="K" tabindex="1" class="hidden">
+                <input type="radio" ng-model="account.balance" name="balance" value="K" tabindex="1" class="hidden">
                 <label>K</label>
               </div>
             </div>
           </div>
-        </span>
-        <span ng-if="onEdit != item.code">
-          {{ item.balance }}
-        </span>
-      </td> -->
-      <td>
-        <div class="ui buttons" ng-if="onEdit == item.code">
-          <button ui-popup class="ui button basic green" data-content="Simpan akun" ng-click="updateAccount(item)"><i class="save icon"></i> </button>
-          <button ui-popup class="ui button basic red" data-content="Batalkan" ng-click="cancelEdit()"><i class="undo icon"></i> </button>
-        </div>
-        <div class="ui buttons" ng-if="onEdit != item.code">
-          <button ui-popup class="ui button basic green" data-content="Ubah akun" ng-click="editAccount(item.code)"><i class="edit icon"></i> </button>
-          <button ui-popup class="ui button basic red" data-content="Hapus akun" ng-click="removeAccount(item.code)"><i class="trash icon"></i> </button>
-        </div>
-      </td>
-    </tr>
-    <tr>
-  </tbody>
-</table>
+        </td> -->
+        <td>
+          <button ng-click="createAccount(account)" ng-class="{ 'loading': onSave }" 
+            ng-disabled="onSave" class="ui fluid button primary"><i class="save icon"></i> Simpan </button>
+          <!-- <button ng-click="account = {}" class="ui button"><i class="undo icon"></i> Batal </button> -->
+        </td>
+      </tr>
+      <tr ng-repeat="item in accounts | orderBy:'sequence' | filter:keyword">
+        <td>{{ item.level }}</td>
+        <td>{{ item.parent_code }}</td>
+        <td>{{ item.code }}</td>
+        <td>
+          <span ng-if="onEdit == item.code">
+            <div class="ui fluid input">
+              <input type="text" ng-model="item.name">
+            </div>
+          </span>
+          <span ng-if="onEdit != item.code">
+            {{ item.name }}
+          </span>
+        </td>
+        <td>
+          <span ng-if="onEdit == item.code" class="ui form">
+            <div class="field">
+              <textarea rows="3" ng-model="item.description"></textarea>
+            </div>
+          </span>
+          <span ng-if="onEdit != item.code">
+            {{ item.description }}
+          </span>
+        </td>
+        <!-- <td>
+          <span ng-if="onEdit == item.code">
+            <div class="inline fields">
+              <div class="field">
+                <div ui-radio class="ui radio checkbox">
+                  <input type="radio" ng-model="item.balance" name="balance" value="D" tabindex="0" class="hidden">
+                  <label>D</label>
+                </div>
+              </div>
+              <div class="field">
+                <div ui-radio class="ui radio checkbox">
+                  <input type="radio" ng-model="item.balance" name="balance" value="K" tabindex="1" class="hidden">
+                  <label>K</label>
+                </div>
+              </div>
+            </div>
+          </span>
+          <span ng-if="onEdit != item.code">
+            {{ item.balance }}
+          </span>
+        </td> -->
+        <td>
+          <div class="ui buttons" ng-if="onEdit == item.code">
+            <button ui-popup class="ui icon button basic primary" data-content="Simpan akun" ng-click="updateAccount(item)"><i class="save icon"></i> </button>
+            <button ui-popup class="ui icon button basic secondary" data-content="Batalkan" ng-click="cancelEdit()"><i class="undo icon"></i> </button>
+          </div>
+          <div class="ui buttons" ng-if="onEdit != item.code">
+            <button ui-popup class="ui icon button basic primary" data-content="Ubah akun" ng-click="editAccount(item.code)"><i class="edit icon"></i> </button>
+            <button ui-popup class="ui icon button basic secondary" data-content="Hapus akun" ng-click="removeAccount(item.code)"><i class="trash icon"></i> </button>
+          </div>
+        </td>
+      </tr>
+      <tr>
+    </tbody>
+  </table>
+</div>

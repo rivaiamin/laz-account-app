@@ -5,6 +5,7 @@ var institutionCtrl = [ '$location', '$scope', '$state', 'institutionFactory', '
     $scope.management = {};
     $scope.onEditManagement = -1;
     $scope.onEditFinance = -1;
+    $scope.uploadedFile = '';
 
     institutionFactory.getInstitution().then( function(institution) {
       $scope.institution = institution;
@@ -14,6 +15,9 @@ var institutionCtrl = [ '$location', '$scope', '$state', 'institutionFactory', '
       institutionFactory.updateInstitution(institution).then(function (response) {
         if (response) {
           $scope.institution = institution;
+          return true;
+        } else {
+          return false;
         }
       });
     }
@@ -75,13 +79,22 @@ var institutionCtrl = [ '$location', '$scope', '$state', 'institutionFactory', '
       })
     }
 
+    $scope.removeFile = function(index) {
+      $scope.institution.files.splice(index, 1);
+      $scope.updateInstitution($scope.institution);
+    }
+
     // upload on file select or drop
-    $scope.upload = function (file) {
-      console.log("gak mau");
+    $scope.uploadImage = function (file) {
       Upload.upload({
           url: Env.base + 'institution/logo',
           data: { file: file }
       }).then(function (resp) {
+          var time = new Date().getTime();
+          var image = "http://localhost:5000/api/institution/logo?random="+time;
+          document.getElementById('logoImageForm').setAttribute('src', image);
+          document.getElementById('logoImage').setAttribute('src', image);
+
           console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
       }, function (resp) {
           console.log('Error status: ' + resp.status);
@@ -90,6 +103,44 @@ var institutionCtrl = [ '$location', '$scope', '$state', 'institutionFactory', '
           console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
       });
     };
+
+    // upload on file select or drop
+    $scope.uploadFile = function (file) {
+      Upload.upload({
+        url: Env.base + 'institution/file',
+        data: { file: file }
+      }).then(function (resp) {
+        var filename = resp.config.data.file.name;
+
+        var ext = filename.split('.').pop();
+        filename = filename.replace(/[^a-z0-9]/gi, '_').toLowerCase() + '.' + ext;
+
+        $scope.uploadedFile = filename;
+
+        console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+      }, function (resp) {
+        console.log('Error status: ' + resp.status);
+      }, function (evt:any) {
+        var progressPercentage = 100.0 * evt.loaded / evt.total;
+        console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+      });
+    };
+
+    $scope.addFile = function(filename) {
+      var institution = $scope.institution;
+      if (!institution.files) {
+        institution.files = [];
+      }
+      institution.files.push({
+        filename: filename,
+        filepath: $scope.uploadedFile,
+      })
+      if ($scope.updateInstitution(institution)) {
+        $scope.uploadedFile = '';
+        $scope.document = null;
+        $scope.filename = '';
+      }
+    }
 }];
 
 export { institutionCtrl };

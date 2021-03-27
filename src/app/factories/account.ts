@@ -13,6 +13,19 @@ var accountFactory = [ '$http', '$rootScope', 'Env', function($http, $rootScope,
         return accounts;
       })
     },
+    exportAccounts: function(params = {}) {
+      delete $http.defaults.headers.common['X-Requested-With'];
+      return $http.get(Env.base + 'accounts/export', 
+        { params: params, responseType: 'arraybuffer' })
+      .then(function (response) {
+        var type = response.headers()['content-type'];
+        var blob = new Blob([response.data], { type: type })
+        return blob;
+      }, function(response) {
+        $rootScope.swalNotif(response.data.message, 'error');
+        return false;
+      })
+    },
     findAccounts: function(code) {
       return $http.get(Env.base + 'accounts/' + code).then(function (response) {
         var account = response.data.account;
