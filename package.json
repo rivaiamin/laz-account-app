@@ -103,7 +103,7 @@
     "connect-busboy": "0.0.2",
     "cors": "^2.8.5",
     "dotenv": "^4.0.0",
-    "excel4node": "^1.7.2",
+    "excel4node": "^1.8.2",
     "express": "^4.17.1",
     "font-awesome": "^4.7.0",
     "getmac": "^5.15.0",
